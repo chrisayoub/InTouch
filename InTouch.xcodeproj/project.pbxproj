@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8360C325201D3DFE003BA946 /* diary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8360C323201D3DFE003BA946 /* diary.storyboard */; };
+		8360C327201D3E24003BA946 /* activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8360C326201D3E24003BA946 /* activities.storyboard */; };
+		8360C32A201D3E37003BA946 /* graph.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8360C328201D3E37003BA946 /* graph.storyboard */; };
 		83C61A9D201CEA0C00E1BB04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C61A9C201CEA0C00E1BB04 /* AppDelegate.swift */; };
 		83C61A9F201CEA0C00E1BB04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C61A9E201CEA0C00E1BB04 /* ViewController.swift */; };
 		83C61AA2201CEA0C00E1BB04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83C61AA0201CEA0C00E1BB04 /* Main.storyboard */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8360C324201D3DFE003BA946 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = InTouch/Base.lproj/diary.storyboard; sourceTree = "<group>"; };
+		8360C326201D3E24003BA946 /* activities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = activities.storyboard; sourceTree = "<group>"; };
+		8360C329201D3E37003BA946 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = InTouch/Base.lproj/graph.storyboard; sourceTree = "<group>"; };
 		83C61A99201CEA0C00E1BB04 /* InTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C61A9C201CEA0C00E1BB04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83C61A9E201CEA0C00E1BB04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +46,9 @@
 		83C61A90201CEA0C00E1BB04 = {
 			isa = PBXGroup;
 			children = (
+				8360C328201D3E37003BA946 /* graph.storyboard */,
+				8360C326201D3E24003BA946 /* activities.storyboard */,
+				8360C323201D3DFE003BA946 /* diary.storyboard */,
 				83C61A9B201CEA0C00E1BB04 /* InTouch */,
 				83C61A9A201CEA0C00E1BB04 /* Products */,
 			);
@@ -126,8 +135,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8360C325201D3DFE003BA946 /* diary.storyboard in Resources */,
+				8360C32A201D3E37003BA946 /* graph.storyboard in Resources */,
 				83C61AAA201CEA0C00E1BB04 /* LaunchScreen.storyboard in Resources */,
 				83C61AA7201CEA0C00E1BB04 /* Assets.xcassets in Resources */,
+				8360C327201D3E24003BA946 /* activities.storyboard in Resources */,
 				83C61AA2201CEA0C00E1BB04 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +160,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		8360C323201D3DFE003BA946 /* diary.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8360C324201D3DFE003BA946 /* Base */,
+			);
+			name = diary.storyboard;
+			sourceTree = "<group>";
+		};
+		8360C328201D3E37003BA946 /* graph.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8360C329201D3E37003BA946 /* Base */,
+			);
+			name = graph.storyboard;
+			sourceTree = "<group>";
+		};
 		83C61AA0201CEA0C00E1BB04 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
