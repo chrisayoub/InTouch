@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--I want to focus on:-->
+        <!--I want to focus on...-->
         <scene sceneID="kZ0-fu-7wW">
             <objects>
                 <tableViewController id="Zay-r6-avb" customClass="HomeTableViewController" customModule="InTouch" customModuleProvider="target" sceneMemberID="viewController">
@@ -192,7 +192,7 @@
                             <outlet property="delegate" destination="Zay-r6-avb" id="4N3-vS-iEc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="I want to focus on:" id="gj8-kj-wbh">
+                    <navigationItem key="navigationItem" title="I want to focus on..." id="gj8-kj-wbh">
                         <barButtonItem key="backBarButtonItem" title=" " id="dg1-FP-rTu"/>
                     </navigationItem>
                 </tableViewController>
