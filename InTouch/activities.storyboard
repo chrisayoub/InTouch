@@ -432,11 +432,11 @@
             </objects>
             <point key="canvasLocation" x="1788" y="38.23088455772114"/>
         </scene>
-        <!--Home-->
+        <!--Navigation Controller-->
         <scene sceneID="hDK-lQ-GJ7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="23O-6v-PWp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="bFm-Sf-FIR"/>
+                    <tabBarItem key="tabBarItem" title="" image="play" id="bFm-Sf-FIR"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Pby-L4-5ng"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -509,4 +509,7 @@
             <point key="canvasLocation" x="4232.8000000000002" y="2586.6566716641682"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="play" width="70" height="70"/>
+    </resources>
 </document>

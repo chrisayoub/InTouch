@@ -128,11 +128,11 @@
             </objects>
             <point key="canvasLocation" x="804" y="225"/>
         </scene>
-        <!--Diary-->
+        <!--Navigation Controller-->
         <scene sceneID="ZeD-n9-wpH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2pp-EH-31p" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Diary" id="rAk-gy-lpO"/>
+                    <tabBarItem key="tabBarItem" title="" image="diary" id="rAk-gy-lpO"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wpD-9w-ULR">
@@ -149,4 +149,7 @@
             <point key="canvasLocation" x="-727" y="-70"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="diary" width="56" height="69"/>
+    </resources>
 </document>
