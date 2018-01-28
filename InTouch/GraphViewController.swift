@@ -61,6 +61,7 @@ class GraphViewController: UIViewController, UITableViewDataSource {
             }
             
             if (i == 0) {
+                // Mind
                 let data = DataAccess.shared.getMindData(interval: interval)
                 var entries: [ChartDataEntry] = []
                 for e in data {
@@ -73,16 +74,77 @@ class GraphViewController: UIViewController, UITableViewDataSource {
                 let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
                 allData.append(entrySet)
             } else if (i == 1) {
-                
+                // Sleep
+                let data = DataAccess.shared.getSleepData(interval: interval)
+                var entries: [ChartDataEntry] = []
+                for e in data {
+                    // Format the date
+                    let dateVal = getFormattedDateForChartEntry(date: e.date, interval: interval)
+                    
+                    // Add the actual entry
+                    entries.append(ChartDataEntry(x: (Double) (dateVal), y: (Double) (e.hoursOfSleep)))
+                }
+                let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
+                allData.append(entrySet)
             } else if (i == 2) {
-                
+                // Mood
+                let data = DataAccess.shared.getMoodData(interval: interval)
+                var entries: [ChartDataEntry] = []
+                for e in data {
+                    // Format the date
+                    let dateVal = getFormattedDateForChartEntry(date: e.date, interval: interval)
+                    
+                    // Add the actual entry
+                    entries.append(ChartDataEntry(x: (Double) (dateVal), y: (Double) (e.moodVal)))
+                }
+                let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
+                allData.append(entrySet)
             } else if (i == 3) {
-                
-            } else {
-                
+                // Diet
+                let data = DataAccess.shared.getDietData(interval: interval)
+                var entries: [ChartDataEntry] = []
+                for e in data {
+                    // Format the date
+                    let dateVal = getFormattedDateForChartEntry(date: e.date, interval: interval)
+                    
+                    // CALCULATE DIET VALUE HERE
+                    var valUse = (Double) (e.hydartion + e.veggies + (8 - e.caffeine) + (8 - e.junk))
+                    valUse /= 4.0
+                    
+                    // Add the actual entry
+                    entries.append(ChartDataEntry(x: (Double) (dateVal), y: valUse))
+                }
+                let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
+                allData.append(entrySet)
+            } else if (i == 4) {
+                // Goals
+                let data = DataAccess.shared.getGoalData(interval: interval)
+                var entries: [ChartDataEntry] = []
+                var dict = Dictionary<Int, Int>()
+                for e in data {
+                    // Format the date
+                    let dateVal = getFormattedDateForChartEntry(date: e.date, interval: interval)
+                    
+                    // Add the actual entry
+                    if (e.done) {
+                        if (dict[dateVal] == nil) {
+                            dict[dateVal] = 1
+                        } else {
+                            dict[dateVal] = dict[dateVal]! + 1
+                        }
+                    }
+                }
+                for (key, val) in dict {
+                    let k = (Double) (key)
+                    let v = (Double) (val)
+                    entries.append(ChartDataEntry(x: k, y: v))
+                }
+                let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
+                allData.append(entrySet)
             }
         }
         
+        print(allData)
         graph.data = ChartData(dataSets: allData)
         
         //This must stay at end of function

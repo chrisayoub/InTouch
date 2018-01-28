@@ -137,7 +137,7 @@ class DataAccess {
         saveContext()
     }
     
-    func getGoalData(interval: graphInterval) -> [Diet] {
+    func getDietData(interval: graphInterval) -> [Diet] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Diet")
         let predicate = getBoundedPredicateFromInterval(interval: interval)
         fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate])
@@ -206,9 +206,11 @@ class DataAccess {
     // MARK: - Core Data Saving support
     
     private func saveContext() {
+        print("TRY SAVING CHANGES")
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
+                print("SAVING CHANGES")
                 try context.save()
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
