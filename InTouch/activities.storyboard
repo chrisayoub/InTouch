@@ -395,10 +395,10 @@
             </objects>
             <point key="canvasLocation" x="3471.1999999999998" y="3206.4467766116945"/>
         </scene>
-        <!--View Controller-->
+        <!--Mind View Controller-->
         <scene sceneID="g2m-6c-y34">
             <objects>
-                <viewController id="z57-f4-tGe" sceneMemberID="viewController">
+                <viewController id="z57-f4-tGe" customClass="MindViewController" customModule="InTouch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oHy-1a-gby">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -408,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BdW-fp-kRf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1788" y="39"/>
+            <point key="canvasLocation" x="1788" y="38.23088455772114"/>
         </scene>
         <!--Home-->
         <scene sceneID="hDK-lQ-GJ7">

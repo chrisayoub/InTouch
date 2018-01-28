@@ -28,6 +28,8 @@
 		CEB41AC0201D613E00BD3981 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB41ABF201D613E00BD3981 /* SleepViewController.swift */; };
 		CEB41AC2201D6CB400BD3981 /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB41AC1201D6CB400BD3981 /* MoodViewController.swift */; };
 		CEB41AC4201D81B200BD3981 /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB41AC3201D81B200BD3981 /* DietViewController.swift */; };
+		CEB41AC6201DA6DA00BD3981 /* CircularClockUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB41AC5201DA6DA00BD3981 /* CircularClockUIView.swift */; };
+		CEB41ACA201DABD800BD3981 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB41AC9201DABD800BD3981 /* CustomImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		CEB41ABF201D613E00BD3981 /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
 		CEB41AC1201D6CB400BD3981 /* MoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
 		CEB41AC3201D81B200BD3981 /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
+		CEB41AC5201DA6DA00BD3981 /* CircularClockUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularClockUIView.swift; sourceTree = "<group>"; };
+		CEB41AC9201DABD800BD3981 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 				CEB41AC1201D6CB400BD3981 /* MoodViewController.swift */,
 				CEB41AC3201D81B200BD3981 /* DietViewController.swift */,
 				8360C33F201D9BC9003BA946 /* Diary.storyboard */,
+				CEB41AC5201DA6DA00BD3981 /* CircularClockUIView.swift */,
+				CEB41AC9201DABD800BD3981 /* CustomImageView.swift */,
 			);
 			path = InTouch;
 			sourceTree = "<group>";
@@ -267,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB41AC6201DA6DA00BD3981 /* CircularClockUIView.swift in Sources */,
 				83F61605201D532D00532F01 /* GraphTableViewCell.swift in Sources */,
 				8360C33D201D9B9D003BA946 /* DiaryTableViewController.swift in Sources */,
 				839C7892201D67CE002E813F /* XAxisFormat.swift in Sources */,
@@ -280,6 +287,7 @@
 				83F61603201D3DB900532F01 /* DataAccess.swift in Sources */,
 				CEB41AC4201D81B200BD3981 /* DietViewController.swift in Sources */,
 				8360C33E201D9B9D003BA946 /* DiaryNewEntryViewController.swift in Sources */,
+				CEB41ACA201DABD800BD3981 /* CustomImageView.swift in Sources */,
 				8360C33C201D9B9D003BA946 /* DiaryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
