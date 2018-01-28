@@ -153,7 +153,7 @@ class DataAccess {
         }
         
         let timeVal = timeBound.timeIntervalSinceReferenceDate.bitPattern
-        return NSPredicate(format: "%K >= %@", "date", timeVal)
+        return NSPredicate(format: "date >= \(timeVal)")
     }
     
     private func insertEntity(entity: NSManagedObject) {
