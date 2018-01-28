@@ -34,14 +34,52 @@ class DataAccess {
         return val + pert
     }
     
+    func deleteAll() {
+        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Mood")
+        var batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try persistentContainer.viewContext.execute(batchDeleteRequest)
+        } catch {
+            // Error Handling
+        }
+        
+         fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Diet")
+         batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try persistentContainer.viewContext.execute(batchDeleteRequest)
+        } catch {
+            // Error Handling
+        }
+        
+         fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Sleep")
+         batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try persistentContainer.viewContext.execute(batchDeleteRequest)
+        } catch {
+            // Error Handling
+        }
+        
+         fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Mind")
+         batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try persistentContainer.viewContext.execute(batchDeleteRequest)
+        } catch {
+            // Error Handling
+        }
+        
+        saveContext()
+    }
+    
     func populateData() {
+        // DELETE ALL FIRST
+        
+        deleteAll()
+        
         for i in 1...28 {
-            
-            
             let randHour = 1+Int(arc4random_uniform(9))
             // Normalize between 1-7
             let randNorm = (Int)(((Double)(randHour))/9.0 * 2.9 + 3)
-            print(randNorm)
+          //  print(randNorm)
             var dateComp = DateComponents()
             dateComp.year = 2018
             dateComp.month = 1

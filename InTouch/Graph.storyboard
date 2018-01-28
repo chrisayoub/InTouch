@@ -89,7 +89,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4MA-57-ong"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Graph" id="gsU-XD-PKI"/>
+                    <navigationItem key="navigationItem" title="Graph" id="gsU-XD-PKI">
+                        <barButtonItem key="leftBarButtonItem" title="        " id="07a-9e-H0l">
+                            <connections>
+                                <action selector="devButton:" destination="pPy-ou-Gih" id="ViM-Eb-Ql7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="graph" destination="XiW-u2-KqU" id="hUy-Hu-ew3"/>
                         <outlet property="tableView" destination="zN9-Rd-aFC" id="xGL-Gy-zev"/>

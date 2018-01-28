@@ -23,6 +23,8 @@ class GraphViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         tableView.dataSource = self
         
+       
+        
         if !UserDefaults.standard.bool(forKey: "popFlag") {
             DataAccess.shared.populateData()
             UserDefaults.standard.set(true, forKey: "popFlag")
@@ -270,6 +272,23 @@ class GraphViewController: UIViewController, UITableViewDataSource {
         cell.config(title: cellTitles[indexPath.item], parent: self)
         
         return cell
+    }
+    
+    
+    // DEV BUTTON IS HERE!
+    
+    
+    @IBAction func devButton(_ sender: Any) {
+        DataAccess.shared.populateData()
+        
+        
+        if (currentSegIndex == 0) {
+            chartUpdate(interval: .week)
+        } else if (currentSegIndex == 1) {
+            chartUpdate(interval: .month)
+        } else {
+            chartUpdate(interval: .year)
+        }
     }
     
     /*
