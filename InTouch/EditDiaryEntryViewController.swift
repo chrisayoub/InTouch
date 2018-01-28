@@ -8,10 +8,17 @@
 
 import UIKit
 
+protocol ViewControllerEditDiaryEntryDelegate: class {
+    
+    func textEdited(text:String?)
+    
+}
+
 class EditDiaryEntryViewController: UIViewController {
     
     var data: String?
     @IBOutlet weak var mainText: UITextView!
+    weak var delegate: ViewControllerEditDiaryEntryDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,5 +42,12 @@ class EditDiaryEntryViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isMovingFromParentViewController {
+            data = mainText.text
+            delegate?.textEdited(text: data)
+        }
+    }
 
 }

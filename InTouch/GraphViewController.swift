@@ -66,7 +66,7 @@ class GraphViewController: UIViewController, UITableViewDataSource {
                 var entries: [ChartDataEntry] = []
                 for e in data {
                     // Format the date
-                    let dateVal = getFormattedDateForChartEntry(date: e.date, interval: interval)
+                    let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
                     
                     // Add the actual entry
                     entries.append(ChartDataEntry(x: (Double) (dateVal), y: e.length))
@@ -76,10 +76,11 @@ class GraphViewController: UIViewController, UITableViewDataSource {
             } else if (i == 1) {
                 // Sleep
                 let data = DataAccess.shared.getSleepData(interval: interval)
+                print(data)
                 var entries: [ChartDataEntry] = []
                 for e in data {
                     // Format the date
-                    let dateVal = getFormattedDateForChartEntry(date: e.date, interval: interval)
+                    let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
                     
                     // Add the actual entry
                     entries.append(ChartDataEntry(x: (Double) (dateVal), y: (Double) (e.hoursOfSleep)))
@@ -92,7 +93,7 @@ class GraphViewController: UIViewController, UITableViewDataSource {
                 var entries: [ChartDataEntry] = []
                 for e in data {
                     // Format the date
-                    let dateVal = getFormattedDateForChartEntry(date: e.date, interval: interval)
+                    let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
                     
                     // Add the actual entry
                     entries.append(ChartDataEntry(x: (Double) (dateVal), y: (Double) (e.moodVal)))
@@ -105,7 +106,7 @@ class GraphViewController: UIViewController, UITableViewDataSource {
                 var entries: [ChartDataEntry] = []
                 for e in data {
                     // Format the date
-                    let dateVal = getFormattedDateForChartEntry(date: e.date, interval: interval)
+                    let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
                     
                     // CALCULATE DIET VALUE HERE
                     var valUse = (Double) (e.hydartion + e.veggies + (8 - e.caffeine) + (8 - e.junk))
@@ -123,7 +124,7 @@ class GraphViewController: UIViewController, UITableViewDataSource {
                 var dict = Dictionary<Int, Int>()
                 for e in data {
                     // Format the date
-                    let dateVal = getFormattedDateForChartEntry(date: e.date, interval: interval)
+                    let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
                     
                     // Add the actual entry
                     if (e.done) {
@@ -144,8 +145,8 @@ class GraphViewController: UIViewController, UITableViewDataSource {
             }
         }
         
-        print(allData)
-        graph.data = ChartData(dataSets: allData)
+        graph.data = LineChartData(dataSets: allData)
+        print(graph.data!)
         
         //This must stay at end of function
         graph.notifyDataSetChanged()
@@ -166,18 +167,23 @@ class GraphViewController: UIViewController, UITableViewDataSource {
         chartUpdate(interval: timeInterval)
     }
     
-    func getFormattedDateForChartEntry(date: Int64, interval: DataAccess.graphInterval) -> Int {
+    func getFormattedDateForChartEntry(date: Date, interval: DataAccess.graphInterval) -> Int {
         // Format the date
-        let diff = Date().timeIntervalSinceReferenceDate.bitPattern - (UInt64) (date)
-        let dateConvDiff = Date(timeIntervalSinceReferenceDate: TimeInterval(diff))
         let cal = Calendar.current
+        let current = Date()
         
         var baseInt = 0
         var labelCount = 0
         switch (interval) {
-        case .month: baseInt = cal.component(.weekOfMonth, from: dateConvDiff); labelCount = 4
-        case .year: baseInt = cal.component(.month, from: dateConvDiff); labelCount = 12
-        default: baseInt = cal.component(.weekday, from: dateConvDiff); labelCount = 7
+        case .month:
+            baseInt = cal.dateComponents([.weekOfMonth], from: date, to: current).weekOfMonth!;
+            labelCount = 4
+        case .year:
+            baseInt = cal.dateComponents([.month], from: date, to: current).month!;
+            labelCount = 12
+        default:
+            baseInt = cal.dateComponents([.day], from: date, to: current).day!;
+            labelCount = 7
         }
         let axisPos = labelCount - 1 - baseInt
         return axisPos

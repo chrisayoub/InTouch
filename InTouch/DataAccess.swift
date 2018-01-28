@@ -149,6 +149,26 @@ class DataAccess {
         }
     }
     
+    // Diary
+    
+    func addDiaryData(diaryText: String) {
+        let diary = Diary.init(
+            entity: NSEntityDescription.entity(forEntityName: "Diary", in: persistentContainer.viewContext)!,
+            insertInto: persistentContainer.viewContext)
+        diary.date = getCurrentDate()
+        diary.message = diaryText
+        saveContext()
+    }
+    
+    func getDiaryData() -> [Diary] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Diary")
+        do {
+            return try persistentContainer.viewContext.fetch(fetchRequest) as! [Diary]
+        } catch {
+            return []
+        }
+    }
+    
     // MARK: Utility methods
     
     private func getBoundedPredicateFromInterval(interval: graphInterval) -> NSPredicate {
@@ -162,21 +182,20 @@ class DataAccess {
             timeBound.addTimeInterval(-DataAccess.year)
         }
         
-        let timeVal = timeBound.timeIntervalSinceReferenceDate.bitPattern
-        return NSPredicate(format: "date >= \(timeVal)")
+        return NSPredicate(format: "date >= %@", timeBound as NSDate)
     }
     
-    private func getCurrentDate() -> Int64 {
-        return (Int64) (Date().timeIntervalSinceReferenceDate.bitPattern)
+    private func getCurrentDate() -> Date {
+        return Date()
     }
     
-    private func decodeDate(forInterval: UInt64) -> Date {
-        return Date(timeIntervalSinceReferenceDate: TimeInterval(bitPattern: forInterval))
-    }
+//    private func decodeDate(forInterval: UInt64) -> Date {
+//        return Date(timeIntervalSinceReferenceDate: TimeInterval(bitPattern: forInterval))
+//    }
     
     // MARK: - Core Data stack
     
-    private var persistentContainer: NSPersistentContainer = {
+    var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
@@ -204,13 +223,16 @@ class DataAccess {
     }()
     
     // MARK: - Core Data Saving support
+   
+    func deleteEntity(entity: NSManagedObject) {
+        persistentContainer.viewContext.delete(entity)
+        saveContext()
+    }
     
-    private func saveContext() {
-        print("TRY SAVING CHANGES")
+    func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
-                print("SAVING CHANGES")
                 try context.save()
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
