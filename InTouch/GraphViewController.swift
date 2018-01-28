@@ -22,6 +22,12 @@ class GraphViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        
+        if !UserDefaults.standard.bool(forKey: "popFlag") {
+            DataAccess.shared.populateData()
+            UserDefaults.standard.set(true, forKey: "popFlag")
+            UserDefaults.standard.synchronize()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
