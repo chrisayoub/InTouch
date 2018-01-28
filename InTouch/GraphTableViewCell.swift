@@ -11,6 +11,7 @@ import UIKit
 class GraphTableViewCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var switchTog: UISwitch!
     
     override func awakeFromNib() {
         super.awakeFromNib()

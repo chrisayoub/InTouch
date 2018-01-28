@@ -11,7 +11,7 @@ import CoreData
 
 class DataAccess {
     
-    let shared = DataAccess()
+    static let shared = DataAccess()
     
     fileprivate init() {
     }
