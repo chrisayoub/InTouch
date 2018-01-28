@@ -10,13 +10,14 @@ import UIKit
 
 class DiaryTableViewController: UITableViewController, ViewControllerDiaryEntryDelegate, ViewControllerEditDiaryEntryDelegate {
        
-    var cellArray: [String] = []
+    var cellArray: [Diary] = []
     var data: String?
     var editIndex: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        updateData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -47,7 +48,7 @@ class DiaryTableViewController: UITableViewController, ViewControllerDiaryEntryD
         
         // Extract lines
         var lines: [String] = []
-        cellArray[indexPath.item].enumerateLines { line, _ in
+        cellArray[indexPath.item].message?.enumerateLines { line, _ in
             lines.append(line)
         }
         if lines.count > 0 {
@@ -125,31 +126,35 @@ class DiaryTableViewController: UITableViewController, ViewControllerDiaryEntryD
         }
         if segue.identifier == "editDiaryEntry" {
             let vc = segue.destination as! EditDiaryEntryViewController
-            vc.data = cellArray[((tableView.indexPathForSelectedRow?.row)!)]
+            vc.data = cellArray[((tableView.indexPathForSelectedRow?.row)!)].message
             editIndex = ((tableView.indexPathForSelectedRow?.row)!)
         }
+    }
+    
+    func updateData() {
+        cellArray = DataAccess.shared.getDiaryData()
+        tableView.reloadData()
     }
     
     func textSubmitted(text: String?) {
         let submission = text!
         if submission.count > 0 {
-            cellArray.append(submission)
-            tableView.reloadData()
+            DataAccess.shared.addDiaryData(diaryText: submission)
+            updateData()
         }
-        
     }
     
     func textEdited(text: String?) {
         let submission = text!
-        cellArray[editIndex!] = submission
+        cellArray[editIndex!].message = submission
+        DataAccess.shared.saveContext()
         tableView.reloadData()
-
-        
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            cellArray.remove(at: indexPath.row)
+            let elem = cellArray.remove(at: indexPath.row)
+            DataAccess.shared.deleteEntity(entity: elem)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
 

@@ -195,7 +195,7 @@ class DataAccess {
     
     // MARK: - Core Data stack
     
-    private var persistentContainer: NSPersistentContainer = {
+    var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
@@ -223,8 +223,13 @@ class DataAccess {
     }()
     
     // MARK: - Core Data Saving support
+   
+    func deleteEntity(entity: NSManagedObject) {
+        persistentContainer.viewContext.delete(entity)
+        saveContext()
+    }
     
-    private func saveContext() {
+    func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {

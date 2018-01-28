@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Diary Table View Controller-->
+        <!--Diary-->
         <scene sceneID="CU6-DD-GSF">
             <objects>
                 <tableViewController id="5F7-Pq-avd" customClass="DiaryTableViewController" customModule="InTouch" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,7 +52,7 @@
                             <outlet property="delegate" destination="5F7-Pq-avd" id="y0O-xQ-gPM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Hfd-dt-T3U">
+                    <navigationItem key="navigationItem" title="Diary" id="Hfd-dt-T3U">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="w3T-H9-Nlc">
                             <connections>
                                 <segue destination="VFz-Vi-URq" kind="show" id="5uJ-bZ-ud3"/>
