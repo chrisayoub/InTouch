@@ -8,10 +8,11 @@
 
 import UIKit
 
-class DiaryTableViewController: UITableViewController, ViewControllerDiaryEntryDelegate {
+class DiaryTableViewController: UITableViewController, ViewControllerDiaryEntryDelegate, ViewControllerEditDiaryEntryDelegate {
        
     var cellArray: [String] = []
     var data: String?
+    var editIndex: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,14 +45,30 @@ class DiaryTableViewController: UITableViewController, ViewControllerDiaryEntryD
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "diaryCell", for: indexPath)
         
+        // Extract lines
         var lines: [String] = []
         cellArray[indexPath.item].enumerateLines { line, _ in
             lines.append(line)
         }
+        if lines.count > 0 {
+            cell.textLabel?.text = lines[0]
+        }
+        else {
+            cell.textLabel?.text = ""
+        }
         
-        cell.textLabel?.text = lines[0]
-        cell.detailTextLabel?.text = "TODO Date"
-        // Configure the cell...
+        // Date
+        let date = Date()
+        // let calendar = Calendar.current
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        
+        let date_string = dateFormatter.string(from: date)
+        
+        cell.detailTextLabel?.text = date_string
 
         return cell
     }
@@ -102,10 +119,14 @@ class DiaryTableViewController: UITableViewController, ViewControllerDiaryEntryD
             viewControllerDiaryEntry.data = data
             viewControllerDiaryEntry.delegate = self
         }
+        if let viewControllerEditDiaryEntry = segue.destination as? EditDiaryEntryViewController {
+            viewControllerEditDiaryEntry.data = data
+            viewControllerEditDiaryEntry.delegate = self
+        }
         if segue.identifier == "editDiaryEntry" {
             let vc = segue.destination as! EditDiaryEntryViewController
-                print(((tableView.indexPathForSelectedRow?.row)!))
             vc.data = cellArray[((tableView.indexPathForSelectedRow?.row)!)]
+            editIndex = ((tableView.indexPathForSelectedRow?.row)!)
         }
     }
     
@@ -116,6 +137,22 @@ class DiaryTableViewController: UITableViewController, ViewControllerDiaryEntryD
             tableView.reloadData()
         }
         
+    }
+    
+    func textEdited(text: String?) {
+        let submission = text!
+        cellArray[editIndex!] = submission
+        tableView.reloadData()
+
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            cellArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+
     }
 
 }
