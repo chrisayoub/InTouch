@@ -119,7 +119,7 @@
         <!--Action-->
         <scene sceneID="VHk-7F-RQe">
             <objects>
-                <viewController title="Action" id="4e3-je-YhI" sceneMemberID="viewController">
+                <viewController title="Action" id="4e3-je-YhI" customClass="ActionViewController" customModule="InTouch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Y9-UI-CSu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,9 +128,12 @@
                                 <rect key="frame" x="141" y="482" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="New Exercise"/>
+                                <connections>
+                                    <action selector="newExercise:" destination="4e3-je-YhI" eventType="touchUpInside" id="yMj-FX-See"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44Z-1K-tyk">
-                                <rect key="frame" x="166" y="164" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44Z-1K-tyk">
+                                <rect key="frame" x="16" y="151" width="343" height="178"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -140,6 +143,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="YxO-9B-K5I"/>
                     </view>
+                    <connections>
+                        <outlet property="exercise" destination="44Z-1K-tyk" id="7EC-NO-Jzm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvP-69-DV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
