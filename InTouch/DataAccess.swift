@@ -162,17 +162,16 @@ class DataAccess {
             timeBound.addTimeInterval(-DataAccess.year)
         }
         
-        let timeVal = timeBound.timeIntervalSinceReferenceDate.bitPattern
-        return NSPredicate(format: "date >= \(timeVal)")
+        return NSPredicate(format: "date >= %@", timeBound as NSDate)
     }
     
-    private func getCurrentDate() -> Int64 {
-        return (Int64) (Date().timeIntervalSinceReferenceDate.bitPattern)
+    private func getCurrentDate() -> Date {
+        return Date()
     }
     
-    private func decodeDate(forInterval: UInt64) -> Date {
-        return Date(timeIntervalSinceReferenceDate: TimeInterval(bitPattern: forInterval))
-    }
+//    private func decodeDate(forInterval: UInt64) -> Date {
+//        return Date(timeIntervalSinceReferenceDate: TimeInterval(bitPattern: forInterval))
+//    }
     
     // MARK: - Core Data stack
     
@@ -206,11 +205,9 @@ class DataAccess {
     // MARK: - Core Data Saving support
     
     private func saveContext() {
-        print("TRY SAVING CHANGES")
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
-                print("SAVING CHANGES")
                 try context.save()
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
