@@ -40,6 +40,8 @@ class GraphViewController: UIViewController, UITableViewDataSource {
         graph.rightAxis.enabled = false
         graph.leftAxis.enabled = false
         
+        graph.legend.horizontalAlignment = .center
+        
         graph.leftAxis.drawGridLinesEnabled = false
         graph.xAxis.drawGridLinesEnabled = false
         
@@ -63,7 +65,7 @@ class GraphViewController: UIViewController, UITableViewDataSource {
         
         graph.xAxis.axisMinimum = 0.0
         switch (interval) {
-        case .month: graph.xAxis.axisMaximum = 4 - 1
+        case .month: graph.xAxis.axisMaximum = 30 - 1
         case .year: graph.xAxis.axisMaximum = 12 - 1
         default: graph.xAxis.axisMaximum = 7 - 1
         }
@@ -229,8 +231,8 @@ class GraphViewController: UIViewController, UITableViewDataSource {
         var labelCount = 0
         switch (interval) {
         case .month:
-            baseInt = cal.dateComponents([.weekOfMonth], from: date, to: current).weekOfMonth!;
-            labelCount = 4
+            baseInt = cal.dateComponents([.day], from: date, to: current).day!;
+            labelCount = 30
         case .year:
             baseInt = cal.dateComponents([.month], from: date, to: current).month!;
             labelCount = 12

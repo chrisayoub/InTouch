@@ -32,7 +32,16 @@ public class XAxisFormat: NSObject, IAxisValueFormatter {
                 i += 1
             }
         } else if (interval == .month) {
-            values = ["Week 1", "Week 2", "Week 3", "Week 4"]
+            //values = ["Week 1", "Week 2", "Week 3", "Week 4"]
+            var i = 1
+            while (i < 8) {
+                values.append("")
+                values.append("")
+                values.append("")
+                values.append("")
+                values.append("\(i * 5)")
+                i += 1
+            }
         } else if (interval == .week) {
             var i = 0
             while (i < 7) {
@@ -48,5 +57,6 @@ public class XAxisFormat: NSObject, IAxisValueFormatter {
     
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         return values[Int(value)]
+        //return "\(value)"
     }
 }
