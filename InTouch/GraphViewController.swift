@@ -13,6 +13,8 @@ class GraphViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var graph: BarChartView!
     @IBOutlet weak var tableView: UITableView!
+    
+    let cellTitles = ["Mind", "Sleep", "Mood", "Diet", "Goals"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,11 +58,14 @@ class GraphViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return cellTitles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath) as! GraphTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "graphCell", for: indexPath) as! GraphTableViewCell
+        
+        cell.selectionStyle = .none
+        cell.config(title: cellTitles[indexPath.item])
         
         return cell
     }

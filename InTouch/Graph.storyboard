@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pPy-ou-Gih">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Dk-7A-RNt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Graph View Controller-->
+        <!--Graph-->
         <scene sceneID="Yf9-tw-yrx">
             <objects>
                 <viewController id="pPy-ou-Gih" customClass="GraphViewController" customModule="InTouch" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,14 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XiW-u2-KqU" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="64" width="343" height="343"/>
+                                <rect key="frame" x="16" y="124" width="343" height="300"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="343" id="Syh-a6-nM6"/>
+                                    <constraint firstAttribute="height" constant="300" id="Syh-a6-nM6"/>
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fgg-S2-MXS">
-                                <rect key="frame" x="16" y="20" width="343" height="29"/>
+                                <rect key="frame" x="16" y="80" width="343" height="29"/>
                                 <segments>
                                     <segment title="Week"/>
                                     <segment title="Month"/>
@@ -37,7 +37,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zN9-Rd-aFC">
-                                <rect key="frame" x="0.0" y="437" width="375" height="230"/>
+                                <rect key="frame" x="0.0" y="440" width="375" height="227"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="graphCell" id="fbr-Ol-FlQ" customClass="GraphTableViewCell" customModule="InTouch" customModuleProvider="target">
@@ -47,8 +47,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6l-tO-KHS">
-                                                    <rect key="frame" x="15" y="11" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6l-tO-KHS">
+                                                    <rect key="frame" x="15" y="11" width="247" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -74,18 +74,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fgg-S2-MXS" firstAttribute="leading" secondItem="4MA-57-ong" secondAttribute="leading" constant="16" id="388-a5-RqI"/>
-                            <constraint firstItem="fgg-S2-MXS" firstAttribute="top" secondItem="4MA-57-ong" secondAttribute="top" id="E6s-6h-rrc"/>
+                            <constraint firstItem="fgg-S2-MXS" firstAttribute="top" secondItem="4MA-57-ong" secondAttribute="top" constant="16" id="E6s-6h-rrc"/>
                             <constraint firstItem="zN9-Rd-aFC" firstAttribute="bottom" secondItem="4MA-57-ong" secondAttribute="bottom" id="ISK-sH-LkJ"/>
                             <constraint firstItem="4MA-57-ong" firstAttribute="trailing" secondItem="fgg-S2-MXS" secondAttribute="trailing" constant="16" id="KGa-Bm-c0P"/>
                             <constraint firstItem="XiW-u2-KqU" firstAttribute="leading" secondItem="4MA-57-ong" secondAttribute="leading" constant="16" id="Kvb-I9-Dc7"/>
                             <constraint firstItem="zN9-Rd-aFC" firstAttribute="trailing" secondItem="4MA-57-ong" secondAttribute="trailing" id="QmL-lF-tKL"/>
                             <constraint firstItem="XiW-u2-KqU" firstAttribute="top" secondItem="fgg-S2-MXS" secondAttribute="bottom" constant="16" id="VjN-Fd-agJ"/>
-                            <constraint firstItem="zN9-Rd-aFC" firstAttribute="top" secondItem="XiW-u2-KqU" secondAttribute="bottom" constant="30" id="jV8-8T-Scx"/>
+                            <constraint firstItem="zN9-Rd-aFC" firstAttribute="top" secondItem="XiW-u2-KqU" secondAttribute="bottom" constant="16" id="jV8-8T-Scx"/>
                             <constraint firstItem="4MA-57-ong" firstAttribute="trailing" secondItem="XiW-u2-KqU" secondAttribute="trailing" constant="16" id="n7X-Uz-uVg"/>
                             <constraint firstItem="zN9-Rd-aFC" firstAttribute="leading" secondItem="4MA-57-ong" secondAttribute="leading" id="xCb-VC-iC5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4MA-57-ong"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Graph" id="gsU-XD-PKI"/>
                     <connections>
                         <outlet property="graph" destination="XiW-u2-KqU" id="hUy-Hu-ew3"/>
                         <outlet property="tableView" destination="zN9-Rd-aFC" id="xGL-Gy-zev"/>
@@ -93,7 +94,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CsG-PC-lGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-274.39999999999998" y="117.39130434782609"/>
+            <point key="canvasLocation" x="64.799999999999997" y="117.39130434782609"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Mz4-Na-NlH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Dk-7A-RNt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gzY-Eh-hBk">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pPy-ou-Gih" kind="relationship" relationship="rootViewController" id="6hy-zW-ScN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XWI-AE-gLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-654" y="117"/>
         </scene>
     </scenes>
 </document>
