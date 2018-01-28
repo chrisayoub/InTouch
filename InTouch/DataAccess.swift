@@ -149,6 +149,26 @@ class DataAccess {
         }
     }
     
+    // Diary
+    
+    func addDiaryData(diaryText: String) {
+        let diary = Diary.init(
+            entity: NSEntityDescription.entity(forEntityName: "Diary", in: persistentContainer.viewContext)!,
+            insertInto: persistentContainer.viewContext)
+        diary.date = getCurrentDate()
+        diary.message = diaryText
+        saveContext()
+    }
+    
+    func getDiaryData() -> [Diary] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Diary")
+        do {
+            return try persistentContainer.viewContext.fetch(fetchRequest) as! [Diary]
+        } catch {
+            return []
+        }
+    }
+    
     // MARK: Utility methods
     
     private func getBoundedPredicateFromInterval(interval: graphInterval) -> NSPredicate {
