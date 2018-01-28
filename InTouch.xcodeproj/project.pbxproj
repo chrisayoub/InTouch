@@ -56,6 +56,7 @@
 		83FCAF59201DCAF300BE0427 /* MindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindViewController.swift; sourceTree = "<group>"; };
 		8A7C28F01DBD0C1E149B33D5 /* Pods-InTouch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InTouch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InTouch/Pods-InTouch.debug.xcconfig"; sourceTree = "<group>"; };
 		8D685E377E56983F625BF6DB /* Pods_InTouch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InTouch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE02D39E201DC7A700046671 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		CEB41ABD201D586800BD3981 /* activities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = activities.storyboard; sourceTree = "<group>"; };
 		CEB41ABF201D613E00BD3981 /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
 		CEB41AC1201D6CB400BD3981 /* MoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB41AC6201DA6DA00BD3981 /* CircularClockUIView.swift in Sources */,
+				CE02D39F201DC7A700046671 /* ActionViewController.swift in Sources */,
 				83F61605201D532D00532F01 /* GraphTableViewCell.swift in Sources */,
 				8360C33D201D9B9D003BA946 /* DiaryTableViewController.swift in Sources */,
 				839C7892201D67CE002E813F /* XAxisFormat.swift in Sources */,
