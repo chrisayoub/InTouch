@@ -16,32 +16,31 @@ class DietViewController: UIViewController {
     @IBOutlet weak var VeggiesSlider: VSSlider!
     @IBOutlet weak var JunkSlider: VSSlider!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         CaffeineSlider.minimumValue = 1
         CaffeineSlider.maximumValue = 7
         CaffeineSlider.increment = 1
         CaffeineSlider.vertical = false
-        CaffeineSlider.trackWidth = 15
+        CaffeineSlider.trackWidth = 5
         CaffeineSlider.value = (CaffeineSlider.maximumValue + CaffeineSlider.minimumValue) / 2
         HydrationSlider.minimumValue = 1
         HydrationSlider.maximumValue = 7
         HydrationSlider.increment = 1
         HydrationSlider.vertical = false
-        HydrationSlider.trackWidth = 15
+        HydrationSlider.trackWidth = 5
         HydrationSlider.value = (HydrationSlider.maximumValue + HydrationSlider.minimumValue) / 2
         VeggiesSlider.minimumValue = 1
         VeggiesSlider.maximumValue = 7
         VeggiesSlider.increment = 1
         VeggiesSlider.vertical = false
-        VeggiesSlider.trackWidth = 15
+        VeggiesSlider.trackWidth = 5
         VeggiesSlider.value = (VeggiesSlider.maximumValue + VeggiesSlider.minimumValue) / 2
         JunkSlider.minimumValue = 1
         JunkSlider.maximumValue = 7
         JunkSlider.increment = 1
         JunkSlider.vertical = false
-        JunkSlider.trackWidth = 15
+        JunkSlider.trackWidth = 5
         JunkSlider.value = (JunkSlider.maximumValue + JunkSlider.minimumValue) / 2
         let col1 = UIColor(red: 189/255.0, green: 106/255.0, blue: 106/255.0, alpha: 1)
         CaffeineSlider.minimumTrackTintColor = col1
@@ -57,7 +56,7 @@ class DietViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        DataAccess.shared.addDietData(caffeine: (Int64) (CaffeineSlider.value), hydration: (Int64) (HydrationSlider.value), junk: (Int64) (JunkSlider.value), veggies: (Int64) (VeggiesSlider.value))
+        DataAccess.shared.addDietData(caffeine: (Int64) (VeggiesSlider.value), hydration: (Int64) (CaffeineSlider.value), junk: (Int64) (JunkSlider.value), veggies: (Int64) (HydrationSlider.value))
     }
 
     /*

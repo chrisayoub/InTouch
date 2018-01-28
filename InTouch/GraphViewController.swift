@@ -45,7 +45,16 @@ class GraphViewController: UIViewController, UITableViewDataSource {
         graph.leftAxis.drawGridLinesEnabled = false
         graph.xAxis.drawGridLinesEnabled = false
         
-        chartUpdate(interval: .week)
+        if (currentSegIndex == 0) {
+            
+            chartUpdate(interval: .week)
+        } else if (currentSegIndex == 1) {
+            
+            chartUpdate(interval: .month)
+        } else {
+            
+            chartUpdate(interval: .year)
+        }
     }
     
     func chartUpdate(interval: DataAccess.graphInterval) {

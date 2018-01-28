@@ -10,15 +10,12 @@ import UIKit
 
 class MoodViewController: UIViewController {
 
+    @IBOutlet weak var sad: UIButton!
+    @IBOutlet weak var neutral: UIButton!
+    @IBOutlet weak var happy: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-       //  DataAccess.shared.addMoodData(moodVal: (Int64) (moodSlider.value))
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,5 +32,19 @@ class MoodViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBAction func sadPress(_ sender: Any) {
+        DataAccess.shared.addMoodData(moodVal: (Int64) (2))
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func neutralPress(_ sender: Any) {
+        DataAccess.shared.addMoodData(moodVal: (Int64) (4))
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func happyPress(_ sender: Any) {
+        DataAccess.shared.addMoodData(moodVal: (Int64) (6))
+        self.navigationController?.popViewController(animated: true)
+    }
 }
