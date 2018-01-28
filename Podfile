@@ -7,5 +7,6 @@ target 'InTouch' do
 
   # Pods for InTouch
   pod 'Charts'
+  pod 'VerticalSteppedSlider'
 
 end

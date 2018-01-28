@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="644" y="1131"/>
         </scene>
-        <!--Graph-->
+        <!--activities-->
         <scene sceneID="m2f-7t-Jdm">
             <objects>
-                <viewControllerPlaceholder storyboardName="Graph" id="LKl-fb-5Rv" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="activities" id="LKl-fb-5Rv" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="gDd-8U-uH4"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiD-pV-1Uf" userLabel="First Responder" sceneMemberID="firstResponder"/>

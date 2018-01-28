@@ -1,14 +1,17 @@
 PODS:
-  - Charts (3.0.4):
-    - Charts/Core (= 3.0.4)
-  - Charts/Core (3.0.4)
+  - Charts (3.0.5):
+    - Charts/Core (= 3.0.5)
+  - Charts/Core (3.0.5)
+  - VerticalSteppedSlider (0.1.0)
 
 DEPENDENCIES:
   - Charts
+  - VerticalSteppedSlider
 
 SPEC CHECKSUMS:
-  Charts: 0705898046257443f0afbbc3179f4b67507b6e48
+  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
+  VerticalSteppedSlider: c1513f095cda3d27e327de7fab6d3f8425a8dc46
 
-PODFILE CHECKSUM: 54f445073d76356a4ef46f07167ed060cabe4c38
+PODFILE CHECKSUM: 211316323112cb978302e2005d3543c5dcf5c3a2
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0
