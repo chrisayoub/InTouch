@@ -14,7 +14,7 @@
         <scene sceneID="Yf9-tw-yrx">
             <objects>
                 <viewController id="pPy-ou-Gih" customClass="GraphViewController" customModule="InTouch" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IxG-RU-NxB" customClass="UIScrollView">
+                    <view key="view" contentMode="scaleToFill" id="IxG-RU-NxB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

@@ -404,9 +404,18 @@
                                     <constraint firstAttribute="height" constant="240" id="xp0-Nm-Lbm"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hf0-tR-aPH">
+                                <rect key="frame" x="321" y="82" width="30" height="30"/>
+                                <state key="normal" title="+5"/>
+                                <connections>
+                                    <action selector="moreTime:" destination="z57-f4-tGe" eventType="touchUpInside" id="39x-vu-hlC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Hf0-tR-aPH" firstAttribute="top" secondItem="Gf9-HO-HJm" secondAttribute="top" constant="18" id="LCz-OF-hvF"/>
+                            <constraint firstItem="Gf9-HO-HJm" firstAttribute="trailing" secondItem="Hf0-tR-aPH" secondAttribute="trailing" constant="24" id="Vay-w5-9g4"/>
                             <constraint firstItem="INc-KI-1j6" firstAttribute="leading" secondItem="Gf9-HO-HJm" secondAttribute="leading" constant="16" id="hrr-Bq-jmJ"/>
                             <constraint firstItem="INc-KI-1j6" firstAttribute="top" secondItem="Gf9-HO-HJm" secondAttribute="top" constant="243" id="jZG-t8-Fcm"/>
                             <constraint firstItem="Gf9-HO-HJm" firstAttribute="trailing" secondItem="INc-KI-1j6" secondAttribute="trailing" constant="16" id="xfM-jj-UhD"/>

@@ -16,7 +16,7 @@ class GraphViewController: UIViewController, UITableViewDataSource {
     
     var currentSegIndex = 0
     
-    let cellTitles = ["Mind", "Sleep", "Mood", "Diet", "Goals"]
+    let cellTitles = ["Mind", "Sleep", "Mood", "Diet"]
     var cells: [GraphTableViewCell] = []
 
     override func viewDidLoad() {
@@ -74,6 +74,7 @@ class GraphViewController: UIViewController, UITableViewDataSource {
                 // Mind
                 let data = DataAccess.shared.getMindData(interval: interval)
                 var entries: [ChartDataEntry] = []
+                
                 for e in data {
                     // Format the date
                     let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
@@ -86,7 +87,7 @@ class GraphViewController: UIViewController, UITableViewDataSource {
             } else if (i == 1) {
                 // Sleep
                 let data = DataAccess.shared.getSleepData(interval: interval)
-                print(data)
+               
                 var entries: [ChartDataEntry] = []
                 for e in data {
                     // Format the date
@@ -127,36 +128,37 @@ class GraphViewController: UIViewController, UITableViewDataSource {
                 }
                 let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
                 allData.append(entrySet)
-            } else if (i == 4) {
-                // Goals
-                let data = DataAccess.shared.getGoalData(interval: interval)
-                var entries: [ChartDataEntry] = []
-                var dict = Dictionary<Int, Int>()
-                for e in data {
-                    // Format the date
-                    let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
-                    
-                    // Add the actual entry
-                    if (e.done) {
-                        if (dict[dateVal] == nil) {
-                            dict[dateVal] = 1
-                        } else {
-                            dict[dateVal] = dict[dateVal]! + 1
-                        }
-                    }
-                }
-                for (key, val) in dict {
-                    let k = (Double) (key)
-                    let v = (Double) (val)
-                    entries.append(ChartDataEntry(x: k, y: v))
-                }
-                let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
-                allData.append(entrySet)
             }
+            //else if (i == 4) {
+//                // Goals
+//                let data = DataAccess.shared.getGoalData(interval: interval)
+//                var entries: [ChartDataEntry] = []
+//                var dict = Dictionary<Int, Int>()
+//                for e in data {
+//                    // Format the date
+//                    let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
+//
+//                    // Add the actual entry
+//                    if (e.done) {
+//                        if (dict[dateVal] == nil) {
+//                            dict[dateVal] = 1
+//                        } else {
+//                            dict[dateVal] = dict[dateVal]! + 1
+//                        }
+//                    }
+//                }
+//                for (key, val) in dict {
+//                    let k = (Double) (key)
+//                    let v = (Double) (val)
+//                    entries.append(ChartDataEntry(x: k, y: v))
+//                }
+//                let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
+//                allData.append(entrySet)
+//            }
         }
         
         graph.data = LineChartData(dataSets: allData)
-        print(graph.data!)
+ 
         
         //This must stay at end of function
         graph.notifyDataSetChanged()

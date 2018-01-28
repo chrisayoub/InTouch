@@ -101,15 +101,46 @@ class MindViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        DataAccess.shared.addMindData(length: Double(originalSeconds - seconds))
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destinationViewController.
+//        // Pass the selected object to the new view controller.
+//    }
+//
 
+    @IBAction func moreTime(_ sender: Any) {
+        seconds += 60 * 5 // 5 MIN
+        originalSeconds += 60 * 5 // SAME TIME
+        
+        // INVALIDATE CURRENT ANIMATION
+        timer?.invalidate()
+        progressIndicatorView.circlePathLayer.removeAllAnimations()
+        // ADD NEW TIME NOW
+        
+        self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+            self.seconds -= 1
+            self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
+            if (self.seconds == 0) {
+                timer.invalidate()
+            }
+        }
+        // create a basic animation that animates the value 'strokeEnd'
+        let tempSeconds = seconds
+        let animateStrokeEnd = CABasicAnimation(keyPath: "strokeEnd")
+        animateStrokeEnd.duration = CFTimeInterval(tempSeconds)
+        animateStrokeEnd.fromValue = (Double) (seconds) / (Double) (originalSeconds)
+        animateStrokeEnd.toValue = 0.0
+        
+        // add the animation
+        progressIndicatorView.circlePathLayer.add(animateStrokeEnd, forKey: "animate stroke end animation")
+    }
 }
