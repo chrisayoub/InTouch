@@ -11,9 +11,46 @@ import Foundation
 
 class MindViewController: UIViewController {
 
+    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
     
+    var isPaused = false
+    
+    @IBAction func pausePress(_ sender: Any) {
+        if isPaused {
+            pauseButton.setTitle("Pause", for: .normal)
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+                self.seconds -= 1
+                self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
+                if (self.seconds == 0) {
+                    timer.invalidate()
+                }
+            }
+            // create a basic animation that animates the value 'strokeEnd'
+            let tempSeconds = seconds
+            let animateStrokeEnd = CABasicAnimation(keyPath: "strokeEnd")
+            animateStrokeEnd.duration = CFTimeInterval(tempSeconds)
+            animateStrokeEnd.fromValue = (Double) (seconds) / (Double) (originalSeconds)
+            animateStrokeEnd.toValue = 0.0
+            
+           // progressIndicatorView.progress = (CGFloat((Double) (seconds) / (Double) (originalSeconds)))
+            
+            // add the animation
+            progressIndicatorView.circlePathLayer.add(animateStrokeEnd, forKey: "animate stroke end animation")
+        } else {
+            pauseButton.setTitle("Resume", for: .normal)
+            timer?.invalidate()
+           // let tempLen = progressIndicatorView.circlePathLayer.strokeEnd
+           // progressIndicatorView.progress = tempLen
+            progressIndicatorView.circlePathLayer.removeAllAnimations()
+        }
+        isPaused = !isPaused
+    }
+    
+    var timer: Timer?
     var seconds = 60 * 10 // 10 MINUTES
+    var originalSeconds = 60 * 10 // SAME VALUE
 
     let progressIndicatorView = CircularClockUIView(frame: .zero)
 
@@ -21,13 +58,14 @@ class MindViewController: UIViewController {
         super.viewDidLoad()
         
         view.addSubview(progressIndicatorView)
-        view.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|[v]|", options: .init(rawValue: 0),
-            metrics: nil, views: ["v": progressIndicatorView]))
-        view.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|[v]|", options: .init(rawValue: 0),
-            metrics: nil, views:  ["v": progressIndicatorView]))
-        progressIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+//        view.addConstraints(NSLayoutConstraint.constraints(
+//            withVisualFormat: "V:|[v]|", options: .init(rawValue: 0),
+//            metrics: nil, views: ["v": progressIndicatorView]))
+//        view.addConstraints(NSLayoutConstraint.constraints(
+//            withVisualFormat: "H:|[v]|", options: .init(rawValue: 0),
+//            metrics: nil, views:  ["v": progressIndicatorView]))
+        progressIndicatorView.frame = emptyView.frame
+      //  progressIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         
         // Do any additional setup after loading the view.
         
@@ -42,10 +80,9 @@ class MindViewController: UIViewController {
         progressIndicatorView.circlePathLayer.add(animateStrokeEnd, forKey: "animate stroke end animation")
         
         self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
             self.seconds -= 1
             self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
-            
             if (self.seconds == 0) {
                 timer.invalidate()
             }
