@@ -57,6 +57,8 @@ class MindViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.setTitle(title: "Mind", subtitle: "Close yours eyes. Breathe. Relax.")
+        
         view.addSubview(progressIndicatorView)
 //        view.addConstraints(NSLayoutConstraint.constraints(
 //            withVisualFormat: "V:|[v]|", options: .init(rawValue: 0),

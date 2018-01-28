@@ -17,6 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let navBackgroundImage: UIImage! = UIImage(named: "header")
+        
+        UINavigationBar.appearance().setBackgroundImage(navBackgroundImage, for: .default)
+        
+        UINavigationBar.appearance().contentMode = .scaleToFill
+        
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 22)]
+        
+        
         return true
     }
 
@@ -89,5 +100,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+}
+
+extension UINavigationItem {
+    func setTitle(title: String, subtitle: String) {
+        
+        let one = UILabel()
+        one.text = title
+        one.font = UIFont.systemFont(ofSize: 22)
+        one.textColor = .white
+        one.sizeToFit()
+        
+        let two = UILabel()
+        two.text = subtitle
+        two.font = UIFont.systemFont(ofSize: 14)
+        two.textAlignment = .center
+        two.textColor = .white
+        two.sizeToFit()
+        
+        let stackView = UIStackView(arrangedSubviews: [one, two])
+        stackView.distribution = .equalCentering
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        
+        let width = max(one.frame.size.width, two.frame.size.width)
+        stackView.frame = CGRect(x: 0, y: 0, width: width, height: 35)
+        
+     //   one.sizeToFit()
+       // two.sizeToFit()
+        
+        self.titleView = stackView
+    }
+}
+
+extension UINavigationBar {
+    open override func sizeThatFits(_ size: CGSize) -> CGSize {
+        
+        return CGSize(width: UIScreen.screens[0].bounds.width, height: 120)
+    }
 }
 
