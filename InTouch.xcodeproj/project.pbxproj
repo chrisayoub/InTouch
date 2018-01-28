@@ -53,9 +53,6 @@
 		83C61A90201CEA0C00E1BB04 = {
 			isa = PBXGroup;
 			children = (
-				8360C328201D3E37003BA946 /* graph.storyboard */,
-				8360C326201D3E24003BA946 /* activities.storyboard */,
-				8360C323201D3DFE003BA946 /* diary.storyboard */,
 				83C61A9B201CEA0C00E1BB04 /* InTouch */,
 				83C61A9A201CEA0C00E1BB04 /* Products */,
 				89E6815136084102CE6DD6FA /* Pods */,
@@ -168,12 +165,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8360C325201D3DFE003BA946 /* diary.storyboard in Resources */,
-				8360C32A201D3E37003BA946 /* graph.storyboard in Resources */,
 				83C61AAA201CEA0C00E1BB04 /* LaunchScreen.storyboard in Resources */,
 				83C61AB2201D2F5500E1BB04 /* Graph.storyboard in Resources */,
 				83C61AA7201CEA0C00E1BB04 /* Assets.xcassets in Resources */,
-				8360C327201D3E24003BA946 /* activities.storyboard in Resources */,
 				83C61AA2201CEA0C00E1BB04 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,22 +245,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8360C323201D3DFE003BA946 /* diary.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8360C324201D3DFE003BA946 /* Base */,
-			);
-			name = diary.storyboard;
-			sourceTree = "<group>";
-		};
-		8360C328201D3E37003BA946 /* graph.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8360C329201D3E37003BA946 /* Base */,
-			);
-			name = graph.storyboard;
-			sourceTree = "<group>";
-		};
 		83C61AA0201CEA0C00E1BB04 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
