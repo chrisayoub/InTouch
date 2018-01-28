@@ -33,18 +33,29 @@ class MoodViewController: UIViewController {
     }
     */
     
+    func notify() {
+        let message = "Got it!"
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        self.present(alert, animated: true)
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.75) {
+            alert.dismiss(animated: true)
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     @IBAction func sadPress(_ sender: Any) {
         DataAccess.shared.addMoodData(moodVal: (Int64) (2))
-        self.navigationController?.popViewController(animated: true)
+        notify()
     }
     
     @IBAction func neutralPress(_ sender: Any) {
         DataAccess.shared.addMoodData(moodVal: (Int64) (4))
-        self.navigationController?.popViewController(animated: true)
+        notify()
     }
     
     @IBAction func happyPress(_ sender: Any) {
         DataAccess.shared.addMoodData(moodVal: (Int64) (6))
-        self.navigationController?.popViewController(animated: true)
+        notify()
     }
 }
