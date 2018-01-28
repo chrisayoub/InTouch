@@ -27,6 +27,7 @@
 		83FCAF5A201DCAF300BE0427 /* MindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCAF59201DCAF300BE0427 /* MindViewController.swift */; };
 		83FCAFE4201E033100BE0427 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCAFE3201E033100BE0427 /* TabBarController.swift */; };
 		83FCAFE6201E07A900BE0427 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCAFE5201E07A900BE0427 /* HomeTableViewController.swift */; };
+		83FCAFE8201E0E1100BE0427 /* HealthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCAFE7201E0E1100BE0427 /* HealthTableViewController.swift */; };
 		CE02D39F201DC7A700046671 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02D39E201DC7A700046671 /* ActionViewController.swift */; };
 		CEB41ABE201D586800BD3981 /* activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB41ABD201D586800BD3981 /* activities.storyboard */; };
 		CEB41AC0201D613E00BD3981 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB41ABF201D613E00BD3981 /* SleepViewController.swift */; };
@@ -59,6 +60,7 @@
 		83FCAF59201DCAF300BE0427 /* MindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindViewController.swift; sourceTree = "<group>"; };
 		83FCAFE3201E033100BE0427 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		83FCAFE5201E07A900BE0427 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		83FCAFE7201E0E1100BE0427 /* HealthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTableViewController.swift; sourceTree = "<group>"; };
 		8A7C28F01DBD0C1E149B33D5 /* Pods-InTouch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InTouch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InTouch/Pods-InTouch.debug.xcconfig"; sourceTree = "<group>"; };
 		8D685E377E56983F625BF6DB /* Pods_InTouch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InTouch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE02D39E201DC7A700046671 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				CEB41AC5201DA6DA00BD3981 /* CircularClockUIView.swift */,
 				CEB41AC9201DABD800BD3981 /* CustomImageView.swift */,
 				CE02D39E201DC7A700046671 /* ActionViewController.swift */,
+				83FCAFE7201E0E1100BE0427 /* HealthTableViewController.swift */,
 				83FCAF59201DCAF300BE0427 /* MindViewController.swift */,
 				83FCAFE3201E033100BE0427 /* TabBarController.swift */,
 				83FCAFE5201E07A900BE0427 /* HomeTableViewController.swift */,
@@ -288,6 +291,7 @@
 				CEB41AC6201DA6DA00BD3981 /* CircularClockUIView.swift in Sources */,
 				CE02D39F201DC7A700046671 /* ActionViewController.swift in Sources */,
 				83F61605201D532D00532F01 /* GraphTableViewCell.swift in Sources */,
+				83FCAFE8201E0E1100BE0427 /* HealthTableViewController.swift in Sources */,
 				8360C33D201D9B9D003BA946 /* DiaryTableViewController.swift in Sources */,
 				83FCAFE6201E07A900BE0427 /* HomeTableViewController.swift in Sources */,
 				839C7892201D67CE002E813F /* XAxisFormat.swift in Sources */,

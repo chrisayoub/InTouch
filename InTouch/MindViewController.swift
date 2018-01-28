@@ -15,7 +15,7 @@ class MindViewController: UIViewController {
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
     
-    var isPaused = false
+    var isPaused = true
     
     @IBAction func pausePress(_ sender: Any) {
         if isPaused {
@@ -71,26 +71,29 @@ class MindViewController: UIViewController {
         progressIndicatorView.frame = emptyView.frame
       //  progressIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         
+        self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
+        pauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+        
         // Do any additional setup after loading the view.
         
         // create a basic animation that animates the value 'strokeEnd'
-        let tempSeconds = seconds
-        let animateStrokeEnd = CABasicAnimation(keyPath: "strokeEnd")
-        animateStrokeEnd.duration = CFTimeInterval(tempSeconds)
-        animateStrokeEnd.fromValue = 1.0
-        animateStrokeEnd.toValue = 0.0
-        
-        // add the animation
-        progressIndicatorView.circlePathLayer.add(animateStrokeEnd, forKey: "animate stroke end animation")
-        
-        self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
-            self.seconds -= 1
-            self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
-            if (self.seconds == 0) {
-                timer.invalidate()
-            }
-        }
+//        let tempSeconds = seconds
+//        let animateStrokeEnd = CABasicAnimation(keyPath: "strokeEnd")
+//        animateStrokeEnd.duration = CFTimeInterval(tempSeconds)
+//        animateStrokeEnd.fromValue = 1.0
+//        animateStrokeEnd.toValue = 0.0
+//
+//        // add the animation
+//        progressIndicatorView.circlePathLayer.add(animateStrokeEnd, forKey: "animate stroke end animation")
+//
+//        self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
+//        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+//            self.seconds -= 1
+//            self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
+//            if (self.seconds == 0) {
+//                timer.invalidate()
+//            }
+//        }
     }
     
     func timeString(time: TimeInterval) -> String {

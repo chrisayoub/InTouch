@@ -10,6 +10,7 @@ import UIKit
 
 class ActionViewController: UIViewController {
 
+    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var exercise: UILabel!
     
     var counter = 0
@@ -17,6 +18,13 @@ class ActionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 189 106 106
+        button.layer.borderWidth = 2.0
+        button.layer.cornerRadius = 16
+        button.layer.borderColor = UIColor(red: 189/255.0, green: 106/255.0, blue: 106/255.0, alpha: 1.0).cgColor
+        
+        navigationItem.setTitle(title: "Action", subtitle: "Go the extra mile.")
+        
         exercise.text = exercises[0]
     }
 
