@@ -20,6 +20,7 @@ class MindViewController: UIViewController {
     @IBAction func pausePress(_ sender: Any) {
         if isPaused {
             pauseButton.setTitle("Pause", for: .normal)
+            pauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                 self.seconds -= 1
                 self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
@@ -39,6 +40,7 @@ class MindViewController: UIViewController {
             // add the animation
             progressIndicatorView.circlePathLayer.add(animateStrokeEnd, forKey: "animate stroke end animation")
         } else {
+            pauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
             pauseButton.setTitle("Resume", for: .normal)
             timer?.invalidate()
            // let tempLen = progressIndicatorView.circlePathLayer.strokeEnd

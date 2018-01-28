@@ -107,13 +107,13 @@ extension UINavigationItem {
         
         let one = UILabel()
         one.text = title
-        one.font = UIFont.systemFont(ofSize: 22)
+        one.font = UIFont.systemFont(ofSize: 20)
         one.textColor = .white
         one.sizeToFit()
         
         let two = UILabel()
         two.text = subtitle
-        two.font = UIFont.systemFont(ofSize: 14)
+        two.font = UIFont.systemFont(ofSize: 12)
         two.textAlignment = .center
         two.textColor = .white
         two.sizeToFit()

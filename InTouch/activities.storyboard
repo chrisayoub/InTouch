@@ -475,17 +475,9 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:57" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INc-KI-1j6">
                                 <rect key="frame" x="16" y="307" width="343" height="53"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.74117647060000003" green="0.41568627450000001" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4t3-GP-2BZ">
-                                <rect key="frame" x="16" y="506" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Pause"/>
-                                <connections>
-                                    <action selector="pausePress:" destination="z57-f4-tGe" eventType="touchUpInside" id="Vgp-r3-NVJ"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ogV-TZ-vqj">
                                 <rect key="frame" x="67" y="226" width="240" height="215"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -494,20 +486,32 @@
                                     <constraint firstAttribute="height" constant="240" id="xp0-Nm-Lbm"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hf0-tR-aPH">
-                                <rect key="frame" x="321" y="82" width="30" height="30"/>
-                                <state key="normal" title="+5"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hf0-tR-aPH">
+                                <rect key="frame" x="313" y="82" width="38" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="eAK-3x-Wgk"/>
+                                    <constraint firstAttribute="height" constant="44" id="tUy-Tl-8P4"/>
+                                </constraints>
+                                <state key="normal" image="+5"/>
                                 <connections>
                                     <action selector="moreTime:" destination="z57-f4-tGe" eventType="touchUpInside" id="39x-vu-hlC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4t3-GP-2BZ">
+                                <rect key="frame" x="156" y="498" width="65" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="pause"/>
+                                <connections>
+                                    <action selector="pausePress:" destination="z57-f4-tGe" eventType="touchUpInside" id="Vgp-r3-NVJ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Hf0-tR-aPH" firstAttribute="top" secondItem="Gf9-HO-HJm" secondAttribute="top" constant="18" id="LCz-OF-hvF"/>
-                            <constraint firstItem="Gf9-HO-HJm" firstAttribute="trailing" secondItem="Hf0-tR-aPH" secondAttribute="trailing" constant="24" id="Vay-w5-9g4"/>
+                            <constraint firstItem="Hf0-tR-aPH" firstAttribute="top" secondItem="Gf9-HO-HJm" secondAttribute="top" constant="18" id="Zgd-zv-tgV"/>
                             <constraint firstItem="INc-KI-1j6" firstAttribute="leading" secondItem="Gf9-HO-HJm" secondAttribute="leading" constant="16" id="hrr-Bq-jmJ"/>
                             <constraint firstItem="INc-KI-1j6" firstAttribute="top" secondItem="Gf9-HO-HJm" secondAttribute="top" constant="243" id="jZG-t8-Fcm"/>
+                            <constraint firstItem="Gf9-HO-HJm" firstAttribute="trailing" secondItem="Hf0-tR-aPH" secondAttribute="trailing" constant="24" id="kSO-ZW-iZb"/>
                             <constraint firstItem="Gf9-HO-HJm" firstAttribute="trailing" secondItem="INc-KI-1j6" secondAttribute="trailing" constant="16" id="xfM-jj-UhD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gf9-HO-HJm"/>
@@ -526,7 +530,9 @@
         <scene sceneID="hDK-lQ-GJ7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="23O-6v-PWp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="play" id="bFm-Sf-FIR"/>
+                    <tabBarItem key="tabBarItem" title="" image="play xs" id="bFm-Sf-FIR">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Pby-L4-5ng"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -600,10 +606,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="+5" width="55" height="64"/>
         <image name="arrow" width="25" height="50"/>
         <image name="brain" width="144" height="148"/>
         <image name="heart" width="146" height="132"/>
         <image name="lightning" width="96" height="192"/>
-        <image name="play" width="70" height="70"/>
+        <image name="pause" width="116" height="116"/>
+        <image name="play xs" width="25" height="25"/>
     </resources>
 </document>

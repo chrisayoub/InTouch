@@ -132,7 +132,9 @@
         <scene sceneID="ZeD-n9-wpH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2pp-EH-31p" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="diary" id="rAk-gy-lpO"/>
+                    <tabBarItem key="tabBarItem" title="" image="diary xs" id="rAk-gy-lpO">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wpD-9w-ULR">
@@ -150,6 +152,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="diary" width="56" height="69"/>
+        <image name="diary xs" width="19" height="24"/>
     </resources>
 </document>

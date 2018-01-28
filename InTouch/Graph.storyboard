@@ -37,7 +37,7 @@
                                     <action selector="segControl:forEvent:" destination="pPy-ou-Gih" eventType="valueChanged" id="VM3-QW-wrg"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zN9-Rd-aFC">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zN9-Rd-aFC">
                                 <rect key="frame" x="0.0" y="440" width="375" height="178"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -45,7 +45,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fbr-Ol-FlQ" id="8hB-6y-cBZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6l-tO-KHS">
@@ -103,7 +103,9 @@
         <scene sceneID="Mz4-Na-NlH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Dk-7A-RNt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="bar small" id="Xcm-AP-M8z"/>
+                    <tabBarItem key="tabBarItem" title="" image="bar xs" id="Xcm-AP-M8z">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gzY-Eh-hBk">
@@ -121,6 +123,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bar small" width="41" height="47"/>
+        <image name="bar xs" width="25" height="28"/>
     </resources>
 </document>
