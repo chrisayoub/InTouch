@@ -126,6 +126,11 @@ class MindViewController: UIViewController {
         seconds += 60 * 5 // 5 MIN
         originalSeconds += 60 * 5 // SAME TIME
         
+        if isPaused {
+            self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
+            return
+        }
+        
         // INVALIDATE CURRENT ANIMATION
         timer?.invalidate()
         progressIndicatorView.circlePathLayer.removeAllAnimations()

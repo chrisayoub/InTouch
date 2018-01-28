@@ -663,50 +663,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cAg-hf-OLI" customClass="VSSlider" customModule="VerticalSteppedSlider">
-                                <rect key="frame" x="16" y="361" width="343" height="144"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Good" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LxB-I5-X1U">
-                                        <rect key="frame" x="293" y="115" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIx-Fj-qKh">
-                                        <rect key="frame" x="8" y="115" width="30" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="vertical" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="meme:" destination="ajH-gp-Cnr" eventType="valueChanged" id="jMo-Y0-lln"/>
-                                </connections>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How are you feeling today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahX-QS-o5Q">
-                                <rect key="frame" x="84" y="144" width="206.5" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How are you feeling today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahX-QS-o5Q">
+                                <rect key="frame" x="16" y="214" width="343" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.74117647060000003" green="0.41568627450000001" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86o-s1-lqG">
+                                <rect key="frame" x="150" y="293" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="22B-c9-iNe"/>
+                                    <constraint firstAttribute="width" constant="75" id="A55-mm-Tmu"/>
+                                </constraints>
+                                <state key="normal" image="neutral"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Srw-Hh-1h0">
+                                <rect key="frame" x="268" y="293" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="XgI-lk-dnd"/>
+                                    <constraint firstAttribute="width" constant="75" id="Yv7-Ly-Hd3"/>
+                                </constraints>
+                                <state key="normal" image="happy"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fve-Ad-UMc">
+                                <rect key="frame" x="32" y="293" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="RiN-B7-81F"/>
+                                    <constraint firstAttribute="width" constant="75" id="oqN-UU-Rgy"/>
+                                </constraints>
+                                <state key="normal" image="sad"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="86o-s1-lqG" firstAttribute="top" secondItem="ahX-QS-o5Q" secondAttribute="bottom" constant="50" id="77I-CM-WtP"/>
+                            <constraint firstItem="VuJ-9Z-LSZ" firstAttribute="trailing" secondItem="Srw-Hh-1h0" secondAttribute="trailing" constant="32" id="7Dc-4T-bzS"/>
+                            <constraint firstItem="86o-s1-lqG" firstAttribute="leading" secondItem="VuJ-9Z-LSZ" secondAttribute="leading" constant="150" id="7ko-y9-HIv"/>
+                            <constraint firstItem="ahX-QS-o5Q" firstAttribute="leading" secondItem="VuJ-9Z-LSZ" secondAttribute="leading" constant="16" id="LfH-sY-Ylj"/>
+                            <constraint firstItem="VuJ-9Z-LSZ" firstAttribute="trailing" secondItem="86o-s1-lqG" secondAttribute="trailing" constant="150" id="LmN-Hg-PuX"/>
+                            <constraint firstItem="fve-Ad-UMc" firstAttribute="top" secondItem="ahX-QS-o5Q" secondAttribute="bottom" constant="50" id="X69-HF-vRc"/>
+                            <constraint firstItem="Srw-Hh-1h0" firstAttribute="top" secondItem="ahX-QS-o5Q" secondAttribute="bottom" constant="50" id="XxS-U4-6Hi"/>
+                            <constraint firstItem="fve-Ad-UMc" firstAttribute="leading" secondItem="VuJ-9Z-LSZ" secondAttribute="leading" constant="32" id="Z0V-Oh-jqd"/>
+                            <constraint firstItem="ahX-QS-o5Q" firstAttribute="top" secondItem="VuJ-9Z-LSZ" secondAttribute="top" constant="150" id="o1n-WK-q9I"/>
+                            <constraint firstItem="VuJ-9Z-LSZ" firstAttribute="trailing" secondItem="ahX-QS-o5Q" secondAttribute="trailing" constant="16" id="vln-w6-c4O"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VuJ-9Z-LSZ"/>
                     </view>
-                    <connections>
-                        <outlet property="moodSlider" destination="cAg-hf-OLI" id="fJb-33-9j3"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R1p-YA-RLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="ajH-gp-Cnr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4232.8000000000002" y="2586.6566716641682"/>
         </scene>
@@ -716,11 +720,14 @@
         <image name="arrow" width="25" height="50"/>
         <image name="brain" width="144" height="148"/>
         <image name="drink" width="75" height="143"/>
+        <image name="happy" width="149" height="149"/>
         <image name="heart" width="146" height="132"/>
         <image name="lightning" width="96" height="192"/>
         <image name="moon" width="68" height="73"/>
+        <image name="neutral" width="149" height="149"/>
         <image name="pause" width="116" height="116"/>
         <image name="play xs" width="25" height="25"/>
         <image name="ring" width="67" height="67"/>
+        <image name="sad" width="149" height="149"/>
     </resources>
 </document>

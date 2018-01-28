@@ -7,28 +7,18 @@
 //
 
 import UIKit
-import VerticalSteppedSlider
 
 class MoodViewController: UIViewController {
 
-    @IBOutlet weak var moodSlider: VSSlider!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        moodSlider.minimumValue = 1
-        moodSlider.maximumValue = 7
-        moodSlider.increment = 1
-        moodSlider.vertical = false
-        moodSlider.trackWidth = 15
-        moodSlider.value = (moodSlider.maximumValue + moodSlider.minimumValue) / 2
-        let col1 = UIColor(red: 189/255.0, green: 106/255.0, blue: 106/255.0, alpha: 1)
-        moodSlider.minimumTrackTintColor = col1
+       
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        DataAccess.shared.addMoodData(moodVal: (Int64) (moodSlider.value))
+       //  DataAccess.shared.addMoodData(moodVal: (Int64) (moodSlider.value))
     }
 
     override func didReceiveMemoryWarning() {
