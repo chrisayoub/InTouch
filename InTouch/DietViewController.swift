@@ -43,7 +43,11 @@ class DietViewController: UIViewController {
         JunkSlider.vertical = false
         JunkSlider.trackWidth = 15
         JunkSlider.value = (JunkSlider.maximumValue + JunkSlider.minimumValue) / 2
-        
+        let col1 = UIColor(red: 189/255.0, green: 106/255.0, blue: 106/255.0, alpha: 1)
+        CaffeineSlider.minimumTrackTintColor = col1
+        HydrationSlider.minimumTrackTintColor = col1
+        VeggiesSlider.minimumTrackTintColor = col1
+        JunkSlider.minimumTrackTintColor = col1
     }
 
     override func didReceiveMemoryWarning() {

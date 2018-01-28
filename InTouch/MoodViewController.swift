@@ -21,6 +21,8 @@ class MoodViewController: UIViewController {
         moodSlider.vertical = false
         moodSlider.trackWidth = 15
         moodSlider.value = (moodSlider.maximumValue + moodSlider.minimumValue) / 2
+        let col1 = UIColor(red: 189/255.0, green: 106/255.0, blue: 106/255.0, alpha: 1)
+        moodSlider.minimumTrackTintColor = col1
         
     }
     
