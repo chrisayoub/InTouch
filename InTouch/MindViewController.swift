@@ -110,7 +110,11 @@ class MindViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        DataAccess.shared.addMindData(length: Double(originalSeconds - seconds))
+        var d = Double(originalSeconds - seconds)
+        if d < 1 {
+            d = 1
+        }
+        DataAccess.shared.addMindData(length: d)
     }
     
     // MARK: - Navigation

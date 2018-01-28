@@ -107,7 +107,10 @@ class GraphViewController: UIViewController, UITableViewDataSource {
                     let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
                     
                     // Add the actual entry
-                    let y_val = ((Double)(e.length))/max * scaleMax
+                    var y_val = ((Double)(e.length))/max * scaleMax
+                    if y_val < 1 {
+                        y_val += 1
+                    }
                     entries.append(ChartDataEntry(x: (Double) (dateVal), y: y_val))
                 }
                 let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
