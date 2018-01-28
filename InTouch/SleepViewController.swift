@@ -25,8 +25,7 @@ class SleepViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        let amountSleep = sleepSlider.value
-        self.navigationController?.popViewController(animated: true)
+        DataAccess.shared.addSleepData(hours: (Int64) (sleepSlider.value))
     }
     
     override func didReceiveMemoryWarning() {
