@@ -29,6 +29,55 @@ class DataAccess {
     
     // MARK: Public CoreData methods
     
+    func shiftNormalValue(val: Int) -> Int{
+        let pert = Int(arc4random_uniform(5)) - 2
+        return val + pert
+    }
+    
+    func populateData() {
+        for i in 1...27 {
+            
+            
+            let randHour = 1+Int(arc4random_uniform(9))
+            // Normalize between 1-7
+            let randNorm = (Int)(((Double)(randHour))/9.0 * 2.9 + 3)
+            print(randNorm)
+            var dateComp = DateComponents()
+            dateComp.year = 2018
+            dateComp.month = 1
+            dateComp.day = i
+            let calendar = Calendar(identifier: .gregorian)
+            
+            // Sleep
+            let sleep = Sleep.init(
+                entity: NSEntityDescription.entity(forEntityName: "Sleep", in: persistentContainer.viewContext)!,
+                insertInto: persistentContainer.viewContext)
+            sleep.date = calendar.date(from: dateComp)
+            sleep.hoursOfSleep = Int64(randNorm)
+            
+            // Mood
+            let mood = Mood.init(
+                entity: NSEntityDescription.entity(forEntityName: "Mood", in: persistentContainer.viewContext)!,
+                insertInto: persistentContainer.viewContext)
+            mood.date = calendar.date(from: dateComp)
+            mood.moodVal = Int64(shiftNormalValue(val: randNorm))
+            
+            // Diet
+            let diet = Diet.init(
+                entity: NSEntityDescription.entity(forEntityName: "Diet", in: persistentContainer.viewContext)!,
+                insertInto: persistentContainer.viewContext)
+            diet.date = calendar.date(from: dateComp)
+            
+            diet.caffeine = 8 - Int64(shiftNormalValue(val: randNorm))
+            diet.hydartion = Int64(shiftNormalValue(val: randNorm))
+            diet.junk = 8 - Int64(shiftNormalValue(val: randNorm))
+            diet.veggies = Int64(shiftNormalValue(val: randNorm))
+            
+            saveContext()
+            
+        }
+    }
+    
     // Mind
     
     func addMindData(length: Double) {
