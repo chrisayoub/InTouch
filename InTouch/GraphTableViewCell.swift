@@ -12,6 +12,7 @@ class GraphTableViewCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var switchTog: UISwitch!
+    var parent: GraphViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,11 +20,12 @@ class GraphTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func config(title: String) {
+    func config(title: String, parent: GraphViewController) {
         label.text = title
+        self.parent = parent
     }
     
     @IBAction func toggleSwitch(_ sender: UISwitch, forEvent event: UIEvent) {
-        
+        parent?.doFullChartUpdate()
     }
 }

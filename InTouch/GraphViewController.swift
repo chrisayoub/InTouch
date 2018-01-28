@@ -14,6 +14,8 @@ class GraphViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var graph: LineChartView!
     @IBOutlet weak var tableView: UITableView!
     
+    var currentSegIndex = 0
+    
     let cellTitles = ["Mind", "Sleep", "Mood", "Diet", "Goals"]
     var cells: [GraphTableViewCell] = []
 
@@ -26,6 +28,14 @@ class GraphViewController: UIViewController, UITableViewDataSource {
         super.viewDidAppear(animated)
         graph.chartDescription?.text = ""
         graph.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        graph.leftAxis.axisMaximum = 10.0
+        graph.leftAxis.axisMinimum = 1.0
+        
+        graph.rightAxis.enabled = false
+        
+        graph.leftAxis.drawGridLinesEnabled = false
+        graph.xAxis.drawGridLinesEnabled = false
+        
         chartUpdate(interval: .week)
     }
     
@@ -153,9 +163,14 @@ class GraphViewController: UIViewController, UITableViewDataSource {
     }
     
     @IBAction func segControl(_ sender: UISegmentedControl, forEvent event: UIEvent) {
+        currentSegIndex = sender.selectedSegmentIndex
+        doFullChartUpdate()
+    }
+    
+    func doFullChartUpdate() {
         var timeInterval: DataAccess.graphInterval
         
-        switch sender.selectedSegmentIndex {
+        switch currentSegIndex {
         case 0:
             timeInterval = .week
         case 1:
@@ -203,7 +218,7 @@ class GraphViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "graphCell", for: indexPath) as! GraphTableViewCell
         cells.append(cell)
         cell.selectionStyle = .none
-        cell.config(title: cellTitles[indexPath.item])
+        cell.config(title: cellTitles[indexPath.item], parent: self)
         
         return cell
     }
