@@ -15,6 +15,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2rr-DZ-IER" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Idm-FK-Rgl">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -28,10 +29,10 @@
             </objects>
             <point key="canvasLocation" x="-358.39999999999998" y="124.13793103448276"/>
         </scene>
-        <!--diary-->
+        <!--Graph-->
         <scene sceneID="e8z-3v-Xxc">
             <objects>
-                <viewControllerPlaceholder storyboardName="diary" id="Kao-RM-hZP" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Graph" id="Kao-RM-hZP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="WHK-LX-7ss"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YlD-lD-Dje" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -48,11 +49,11 @@
             </objects>
             <point key="canvasLocation" x="-359" y="1140"/>
         </scene>
-        <!--graph-->
+        <!--Graph-->
         <scene sceneID="sJ5-Fj-gFb">
             <objects>
-                <viewControllerPlaceholder storyboardName="graph" id="7lH-fr-zzN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="wNI-gv-dZC"/>
+                <viewControllerPlaceholder storyboardName="Graph" id="7lH-fr-zzN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Graph" id="wNI-gv-dZC"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6i-wQ-bqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
