@@ -38,6 +38,7 @@ class GraphViewController: UIViewController, UITableViewDataSource {
         graph.leftAxis.axisMinimum = 1.0
         
         graph.rightAxis.enabled = false
+        graph.leftAxis.enabled = false
         
         graph.leftAxis.drawGridLinesEnabled = false
         graph.xAxis.drawGridLinesEnabled = false
@@ -69,6 +70,7 @@ class GraphViewController: UIViewController, UITableViewDataSource {
         graph.xAxis.setLabelCount((Int) (graph.xAxis.axisMaximum) + 1, force: true)
         
         var allData: [LineChartDataSet] = []
+        let scaleMax = 10.0
         
         // Add real data
         for i in 0..<cells.count {
@@ -80,40 +82,55 @@ class GraphViewController: UIViewController, UITableViewDataSource {
                 // Mind
                 let data = DataAccess.shared.getMindData(interval: interval)
                 var entries: [ChartDataEntry] = []
+                var max = 0.0
+                for e in data {
+                    if e.length > max {
+                        max = e.length
+                    }
+                }
                 
                 for e in data {
                     // Format the date
                     let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
                     
                     // Add the actual entry
-                    entries.append(ChartDataEntry(x: (Double) (dateVal), y: e.length))
+                    let y_val = ((Double)(e.length))/max * scaleMax
+                    entries.append(ChartDataEntry(x: (Double) (dateVal), y: y_val))
                 }
                 let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
+                entrySet.circleColors = [UIColor.green]
+                entrySet.setColor(UIColor.green)
                 allData.append(entrySet)
             } else if (i == 1) {
                 // Sleep
                 let data = DataAccess.shared.getSleepData(interval: interval)
                
                 var entries: [ChartDataEntry] = []
+                let max = 7.0
                 for e in data {
                     // Format the date
                     let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
                     
                     // Add the actual entry
-                    entries.append(ChartDataEntry(x: (Double) (dateVal), y: (Double) (e.hoursOfSleep)))
+                    let y_val = ((Double)(e.hoursOfSleep))/max * scaleMax
+                    entries.append(ChartDataEntry(x: (Double) (dateVal), y: y_val))
                 }
                 let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
+                entrySet.circleColors = [UIColor.red]
+                entrySet.setColor(UIColor.red)
                 allData.append(entrySet)
             } else if (i == 2) {
                 // Mood
                 let data = DataAccess.shared.getMoodData(interval: interval)
                 var entries: [ChartDataEntry] = []
+                let max = 7.0
                 for e in data {
                     // Format the date
                     let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
                     
                     // Add the actual entry
-                    entries.append(ChartDataEntry(x: (Double) (dateVal), y: (Double) (e.moodVal)))
+                    let y_val = ((Double)(e.moodVal))/max * scaleMax
+                    entries.append(ChartDataEntry(x: (Double) (dateVal), y: y_val))
                 }
                 let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
                 allData.append(entrySet)
@@ -133,6 +150,8 @@ class GraphViewController: UIViewController, UITableViewDataSource {
                     entries.append(ChartDataEntry(x: (Double) (dateVal), y: valUse))
                 }
                 let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
+                entrySet.circleColors = [UIColor.yellow]
+                entrySet.setColor(UIColor.yellow)
                 allData.append(entrySet)
             }
             //else if (i == 4) {
@@ -164,6 +183,7 @@ class GraphViewController: UIViewController, UITableViewDataSource {
         }
         
         graph.data = LineChartData(dataSets: allData)
+        graph.data?.setDrawValues(false)
  
         
         //This must stay at end of function
