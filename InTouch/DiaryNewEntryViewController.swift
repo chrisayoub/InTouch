@@ -51,8 +51,10 @@ class DiaryNewEntryViewController: UIViewController, UITextViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if isMovingFromParentViewController {
-            data = mainText.text
-            delegate?.textSubmitted(text: data)
+            if erased {
+                data = mainText.text
+                delegate?.textSubmitted(text: data)
+            }
         }
     }
    
