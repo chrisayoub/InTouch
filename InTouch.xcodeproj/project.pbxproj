@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00C47F702B6D144F01643D7E /* Pods_InTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D685E377E56983F625BF6DB /* Pods_InTouch.framework */; };
+		839C7892201D67CE002E813F /* XAxisFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839C7891201D67CE002E813F /* XAxisFormat.swift */; };
 		83C61A9D201CEA0C00E1BB04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C61A9C201CEA0C00E1BB04 /* AppDelegate.swift */; };
 		83C61A9F201CEA0C00E1BB04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C61A9E201CEA0C00E1BB04 /* ViewController.swift */; };
 		83C61AA2201CEA0C00E1BB04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83C61AA0201CEA0C00E1BB04 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		3A8E22F7C9C3D879334383B8 /* Pods-InTouch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InTouch.release.xcconfig"; path = "Pods/Target Support Files/Pods-InTouch/Pods-InTouch.release.xcconfig"; sourceTree = "<group>"; };
+		839C7891201D67CE002E813F /* XAxisFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAxisFormat.swift; sourceTree = "<group>"; };
 		83C61A99201CEA0C00E1BB04 /* InTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C61A9C201CEA0C00E1BB04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83C61A9E201CEA0C00E1BB04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				83F61600201D350500532F01 /* GraphViewController.swift */,
 				83F61602201D3DB900532F01 /* DataAccess.swift */,
 				83F61604201D532D00532F01 /* GraphTableViewCell.swift */,
+				839C7891201D67CE002E813F /* XAxisFormat.swift */,
 			);
 			path = InTouch;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83F61605201D532D00532F01 /* GraphTableViewCell.swift in Sources */,
+				839C7892201D67CE002E813F /* XAxisFormat.swift in Sources */,
 				83C61A9F201CEA0C00E1BB04 /* ViewController.swift in Sources */,
 				83F61601201D350500532F01 /* GraphViewController.swift in Sources */,
 				83C61A9D201CEA0C00E1BB04 /* AppDelegate.swift in Sources */,

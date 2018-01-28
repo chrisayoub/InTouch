@@ -11,10 +11,11 @@ import Charts
 
 class GraphViewController: UIViewController, UITableViewDataSource {
 
-    @IBOutlet weak var graph: BarChartView!
+    @IBOutlet weak var graph: LineChartView!
     @IBOutlet weak var tableView: UITableView!
     
     let cellTitles = ["Mind", "Sleep", "Mood", "Diet", "Goals"]
+    var cells: [GraphTableViewCell] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,32 +24,101 @@ class GraphViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        barChartUpdate()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        graph.chartDescription?.text = ""
+        graph.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        chartUpdate(interval: .week)
     }
     
-    func barChartUpdate() {
-        let entry1 = BarChartDataEntry(x: 1.0, y: 50.0)
-        let entry2 = BarChartDataEntry(x: 2.0, y: 60.0)
-        let entry3 = BarChartDataEntry(x: 3.0, y: 35.0)
-        let dataSet = BarChartDataSet(values: [entry1, entry2, entry3], label: "DataSet1")
-        let data = BarChartData(dataSets: [dataSet])
-        graph.data = data
-        graph.chartDescription?.text = "Number of Stuff by Type"
+    func chartUpdate(interval: DataAccess.graphInterval) {
+        // Adding BS data....
+//        var entries: [ChartDataEntry] = []
+//        for i in 0...3 {
+//            let t = Double(i)
+//            entries.append(ChartDataEntry(x: (Double) (i), y: (Double) (t)))
+//        }
+//        let entry1 = LineChartDataSet(values: entries, label: "Test Set")
+//        graph.data = LineChartData(dataSets: [entry1])
         
-        //All other additions to this function will go here
+        // Format X Axis
+        let format = XAxisFormat()
+        format.initVals(interval: interval)
+        graph.xAxis.valueFormatter = format
         
+        graph.xAxis.axisMinimum = 0.0
+        switch (interval) {
+        case .month: graph.xAxis.axisMaximum = 4 - 1
+        case .year: graph.xAxis.axisMaximum = 12 - 1
+        default: graph.xAxis.axisMaximum = 7 - 1
+        }
+        graph.xAxis.setLabelCount((Int) (graph.xAxis.axisMaximum) + 1, force: true)
+        
+        var allData: [LineChartDataSet] = []
+        
+        // Add real data
+        for i in 0..<cells.count {
+            if !cells[i].switchTog.isOn {
+                continue
+            }
+            
+            if (i == 0) {
+                let data = DataAccess.shared.getMindData(interval: interval)
+                var entries: [ChartDataEntry] = []
+                for e in data {
+                    // Format the date
+                    let dateVal = getFormattedDateForChartEntry(date: e.date, interval: interval)
+                    
+                    // Add the actual entry
+                    entries.append(ChartDataEntry(x: (Double) (dateVal), y: e.length))
+                }
+                let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
+                allData.append(entrySet)
+            } else if (i == 1) {
+                
+            } else if (i == 2) {
+                
+            } else if (i == 3) {
+                
+            } else {
+                
+            }
+        }
+        
+        graph.data = ChartData(dataSets: allData)
         
         //This must stay at end of function
         graph.notifyDataSetChanged()
     }
     
     @IBAction func segControl(_ sender: UISegmentedControl, forEvent event: UIEvent) {
+        var timeInterval: DataAccess.graphInterval
         
+        switch sender.selectedSegmentIndex {
+        case 0:
+            timeInterval = .week
+        case 1:
+            timeInterval = .month
+        default:
+            timeInterval = .year
+        }
+        
+        chartUpdate(interval: timeInterval)
+    }
+    
+    func getFormattedDateForChartEntry(date: Int64, interval: DataAccess.graphInterval) -> Int {
+        // Format the date
+        let diff = Date().timeIntervalSinceReferenceDate.bitPattern - (UInt64) (date)
+        let dateConvDiff = Date(timeIntervalSinceReferenceDate: TimeInterval(diff))
+        let cal = Calendar.current
+        
+        var baseInt = 0
+        var labelCount = 0
+        switch (interval) {
+        case .month: baseInt = cal.component(.weekOfMonth, from: dateConvDiff); labelCount = 4
+        case .year: baseInt = cal.component(.month, from: dateConvDiff); labelCount = 12
+        default: baseInt = cal.component(.weekday, from: dateConvDiff); labelCount = 7
+        }
+        let axisPos = labelCount - 1 - baseInt
+        return axisPos
     }
     
     // Table view data source
@@ -63,7 +133,7 @@ class GraphViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "graphCell", for: indexPath) as! GraphTableViewCell
-        
+        cells.append(cell)
         cell.selectionStyle = .none
         cell.config(title: cellTitles[indexPath.item])
         
@@ -79,5 +149,4 @@ class GraphViewController: UIViewController, UITableViewDataSource {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
