@@ -25,6 +25,8 @@
 		83F61603201D3DB900532F01 /* DataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F61602201D3DB900532F01 /* DataAccess.swift */; };
 		83F61605201D532D00532F01 /* GraphTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F61604201D532D00532F01 /* GraphTableViewCell.swift */; };
 		83FCAF5A201DCAF300BE0427 /* MindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCAF59201DCAF300BE0427 /* MindViewController.swift */; };
+		83FCAFE4201E033100BE0427 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCAFE3201E033100BE0427 /* TabBarController.swift */; };
+		83FCAFE6201E07A900BE0427 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCAFE5201E07A900BE0427 /* HomeTableViewController.swift */; };
 		CE02D39F201DC7A700046671 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02D39E201DC7A700046671 /* ActionViewController.swift */; };
 		CEB41ABE201D586800BD3981 /* activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB41ABD201D586800BD3981 /* activities.storyboard */; };
 		CEB41AC0201D613E00BD3981 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB41ABF201D613E00BD3981 /* SleepViewController.swift */; };
@@ -55,6 +57,8 @@
 		83F61602201D3DB900532F01 /* DataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAccess.swift; sourceTree = "<group>"; };
 		83F61604201D532D00532F01 /* GraphTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTableViewCell.swift; sourceTree = "<group>"; };
 		83FCAF59201DCAF300BE0427 /* MindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindViewController.swift; sourceTree = "<group>"; };
+		83FCAFE3201E033100BE0427 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		83FCAFE5201E07A900BE0427 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		8A7C28F01DBD0C1E149B33D5 /* Pods-InTouch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InTouch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InTouch/Pods-InTouch.debug.xcconfig"; sourceTree = "<group>"; };
 		8D685E377E56983F625BF6DB /* Pods_InTouch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InTouch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE02D39E201DC7A700046671 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 				CEB41AC9201DABD800BD3981 /* CustomImageView.swift */,
 				CE02D39E201DC7A700046671 /* ActionViewController.swift */,
 				83FCAF59201DCAF300BE0427 /* MindViewController.swift */,
+				83FCAFE3201E033100BE0427 /* TabBarController.swift */,
+				83FCAFE5201E07A900BE0427 /* HomeTableViewController.swift */,
 			);
 			path = InTouch;
 			sourceTree = "<group>";
@@ -283,12 +289,14 @@
 				CE02D39F201DC7A700046671 /* ActionViewController.swift in Sources */,
 				83F61605201D532D00532F01 /* GraphTableViewCell.swift in Sources */,
 				8360C33D201D9B9D003BA946 /* DiaryTableViewController.swift in Sources */,
+				83FCAFE6201E07A900BE0427 /* HomeTableViewController.swift in Sources */,
 				839C7892201D67CE002E813F /* XAxisFormat.swift in Sources */,
 				CEB41AC2201D6CB400BD3981 /* MoodViewController.swift in Sources */,
 				83C61A9F201CEA0C00E1BB04 /* ViewController.swift in Sources */,
 				83FCAF5A201DCAF300BE0427 /* MindViewController.swift in Sources */,
 				CEB41AC0201D613E00BD3981 /* SleepViewController.swift in Sources */,
 				83F61601201D350500532F01 /* GraphViewController.swift in Sources */,
+				83FCAFE4201E033100BE0427 /* TabBarController.swift in Sources */,
 				8360C33B201D9B9D003BA946 /* EditDiaryEntryViewController.swift in Sources */,
 				83C61A9D201CEA0C00E1BB04 /* AppDelegate.swift in Sources */,
 				83C61AA5201CEA0C00E1BB04 /* InTouch.xcdatamodeld in Sources */,

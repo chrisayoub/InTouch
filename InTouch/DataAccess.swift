@@ -35,7 +35,7 @@ class DataAccess {
     }
     
     func populateData() {
-        for i in 1...27 {
+        for i in 1...28 {
             
             
             let randHour = 1+Int(arc4random_uniform(9))

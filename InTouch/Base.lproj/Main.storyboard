@@ -12,7 +12,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="dCk-mV-8y3">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2rr-DZ-IER" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2rr-DZ-IER" customClass="TabBarController" customModule="InTouch" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Idm-FK-Rgl">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
