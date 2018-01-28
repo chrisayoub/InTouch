@@ -10,8 +10,6 @@ import UIKit
 
 class CircularClockUIView: UIView {
 
-    
-    
     let circlePathLayer = CAShapeLayer()
     let circleRadius: CGFloat = 100.0
     
@@ -26,14 +24,15 @@ class CircularClockUIView: UIView {
     }
     
     func configure() {
-        progress = 0
+        progress = 0.0
         circlePathLayer.frame = bounds
-        circlePathLayer.lineWidth = 2
-        circlePathLayer.fillColor = UIColor.clear.cgColor
+        circlePathLayer.lineWidth = 4
+        circlePathLayer.fillColor = nil
+        
+        circlePathLayer.transform = CATransform3DMakeAffineTransform(transform.rotated(by: CGFloat(-Double.pi / 2)))//transform.rotated(by: CGFloat(M_PI_2))
         let col1 = UIColor(red: 189/255.0, green: 106/255.0, blue: 106/255.0, alpha: 1)
         circlePathLayer.strokeColor = col1.cgColor
         layer.addSublayer(circlePathLayer)
-        backgroundColor = .white
     }
     
     func circleFrame() -> CGRect {
