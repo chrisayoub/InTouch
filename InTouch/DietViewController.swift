@@ -11,6 +11,7 @@ import VerticalSteppedSlider
 
 class DietViewController: UIViewController {
 
+    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var CaffeineSlider: VSSlider!
     @IBOutlet weak var HydrationSlider: VSSlider!
     @IBOutlet weak var VeggiesSlider: VSSlider!
@@ -47,6 +48,11 @@ class DietViewController: UIViewController {
         HydrationSlider.minimumTrackTintColor = col1
         VeggiesSlider.minimumTrackTintColor = col1
         JunkSlider.minimumTrackTintColor = col1
+        
+        // Button
+        button.layer.borderWidth = 2.0
+        button.layer.cornerRadius = 16
+        button.layer.borderColor = UIColor(red: 189/255.0, green: 106/255.0, blue: 106/255.0, alpha: 1.0).cgColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,11 +60,6 @@ class DietViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        DataAccess.shared.addDietData(caffeine: (Int64) (VeggiesSlider.value), hydration: (Int64) (CaffeineSlider.value), junk: (Int64) (JunkSlider.value), veggies: (Int64) (HydrationSlider.value))
-    }
-
     /*
     // MARK: - Navigation
 
@@ -68,5 +69,10 @@ class DietViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func submit(_ sender: Any) {
+        DataAccess.shared.addDietData(caffeine: (Int64) (VeggiesSlider.value), hydration: (Int64) (CaffeineSlider.value), junk: (Int64) (JunkSlider.value), veggies: (Int64) (HydrationSlider.value))
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }

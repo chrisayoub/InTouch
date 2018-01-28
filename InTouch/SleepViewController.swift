@@ -13,6 +13,8 @@ class SleepViewController: UIViewController {
     
     @IBOutlet weak var sleepSlider: VSSlider!
     
+    @IBOutlet weak var button: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sleepSlider.minimumValue = 1
@@ -23,11 +25,11 @@ class SleepViewController: UIViewController {
         sleepSlider.value = (sleepSlider.maximumValue + sleepSlider.minimumValue) / 2
         let col1 = UIColor(red: 189/255.0, green: 106/255.0, blue: 106/255.0, alpha: 1)
         sleepSlider.minimumTrackTintColor = col1
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        DataAccess.shared.addSleepData(hours: (Int64) (sleepSlider.value))
+        
+        button.layer.borderWidth = 2.0
+        button.layer.cornerRadius = 16
+        button.layer.borderColor = UIColor(red: 189/255.0, green: 106/255.0, blue: 106/255.0, alpha: 1.0).cgColor
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,4 +48,8 @@ class SleepViewController: UIViewController {
     }
     */
 
+    @IBAction func submit(_ sender: Any) {
+        DataAccess.shared.addSleepData(hours: (Int64) (sleepSlider.value))
+        self.navigationController?.popViewController(animated: true)
+    }
 }
