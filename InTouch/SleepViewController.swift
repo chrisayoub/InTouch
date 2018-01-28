@@ -21,6 +21,8 @@ class SleepViewController: UIViewController {
         sleepSlider.vertical = false
         sleepSlider.trackWidth = 15
         sleepSlider.value = (sleepSlider.maximumValue + sleepSlider.minimumValue) / 2
+        let col1 = UIColor(red: 189/255.0, green: 106/255.0, blue: 106/255.0, alpha: 1)
+        sleepSlider.minimumTrackTintColor = col1
     }
 
     override func viewWillDisappear(_ animated: Bool) {

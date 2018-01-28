@@ -10,6 +10,8 @@ import UIKit
 
 class CircularClockUIView: UIView {
 
+    
+    
     let circlePathLayer = CAShapeLayer()
     let circleRadius: CGFloat = 100.0
     
