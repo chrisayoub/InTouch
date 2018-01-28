@@ -103,7 +103,7 @@
         <scene sceneID="Mz4-Na-NlH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Dk-7A-RNt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="bars" id="Xcm-AP-M8z"/>
+                    <tabBarItem key="tabBarItem" title="" image="bar small" id="Xcm-AP-M8z"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gzY-Eh-hBk">
@@ -121,6 +121,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bars" width="61" height="69"/>
+        <image name="bar small" width="41" height="47"/>
     </resources>
 </document>
