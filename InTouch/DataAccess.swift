@@ -32,10 +32,12 @@ class DataAccess {
     // Mind
     
     func addMindData(length: Double) {
-        let mind = Mind()
+        let mind = Mind.init(
+            entity: NSEntityDescription.entity(forEntityName: "Mind", in: persistentContainer.viewContext)!,
+            insertInto: persistentContainer.viewContext)
         mind.date = getCurrentDate()
         mind.length = length
-        insertEntity(entity: mind)
+        saveContext()
     }
     
     func getMindData(interval: graphInterval) -> [Mind] {
@@ -53,10 +55,12 @@ class DataAccess {
     // Sleep
     
     func addSleepData(hours: Int64) {
-        let sleep = Sleep()
+        let sleep = Sleep.init(
+            entity: NSEntityDescription.entity(forEntityName: "Sleep", in: persistentContainer.viewContext)!,
+            insertInto: persistentContainer.viewContext)
         sleep.date = getCurrentDate()
         sleep.hoursOfSleep = hours
-        insertEntity(entity: sleep)
+        saveContext()
     }
     
     func getSleepData(interval: graphInterval) -> [Sleep] {
@@ -74,10 +78,12 @@ class DataAccess {
     // Mood
     
     func addMoodData(moodVal: Int64) {
-        let mood = Mood()
+        let mood = Mood.init(
+            entity: NSEntityDescription.entity(forEntityName: "Mood", in: persistentContainer.viewContext)!,
+            insertInto: persistentContainer.viewContext)
         mood.date = getCurrentDate()
         mood.moodVal = moodVal
-        insertEntity(entity: mood)
+        saveContext()
     }
     
     func getMoodData(interval: graphInterval) -> [Mood] {
@@ -95,10 +101,12 @@ class DataAccess {
     // Goal
     
     func addGoalData(goalText: String) {
-        let goal = Goal()
+        let goal = Goal.init(
+            entity: NSEntityDescription.entity(forEntityName: "Goal", in: persistentContainer.viewContext)!,
+            insertInto: persistentContainer.viewContext)
         goal.date = getCurrentDate()
         goal.text = goalText
-        insertEntity(entity: goal)
+        saveContext()
     }
     
     func getGoalData(interval: graphInterval) -> [Goal] {
@@ -116,7 +124,9 @@ class DataAccess {
     // Diet
     
     func addDietData(caffeine: Int64, hydration: Int64, junk: Int64, veggies: Int64) {
-        let diet = Diet()
+        let diet = Diet.init(
+            entity: NSEntityDescription.entity(forEntityName: "Diet", in: persistentContainer.viewContext)!,
+            insertInto: persistentContainer.viewContext)
         diet.date = getCurrentDate()
         
         diet.caffeine = caffeine
@@ -124,7 +134,7 @@ class DataAccess {
         diet.junk = junk
         diet.veggies = veggies
             
-        insertEntity(entity: diet)
+        saveContext()
     }
     
     func getGoalData(interval: graphInterval) -> [Diet] {
@@ -154,11 +164,6 @@ class DataAccess {
         
         let timeVal = timeBound.timeIntervalSinceReferenceDate.bitPattern
         return NSPredicate(format: "date >= \(timeVal)")
-    }
-    
-    private func insertEntity(entity: NSManagedObject) {
-        persistentContainer.viewContext.insert(entity)
-        saveContext()
     }
     
     private func getCurrentDate() -> Int64 {
