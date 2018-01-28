@@ -75,7 +75,7 @@ class DataAccess {
         
         deleteAll()
         
-        for i in 1...28 {
+        for i in 1...27 {
             let randHour = 1+Int(arc4random_uniform(9))
             // Normalize between 1-7
             let randNorm = (Int)(((Double)(randHour))/9.0 * 2.9 + 3)
