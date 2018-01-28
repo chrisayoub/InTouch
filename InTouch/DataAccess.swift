@@ -137,7 +137,7 @@ class DataAccess {
         saveContext()
     }
     
-    func getGoalData(interval: graphInterval) -> [Diet] {
+    func getDietData(interval: graphInterval) -> [Diet] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Diet")
         let predicate = getBoundedPredicateFromInterval(interval: interval)
         fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate])
@@ -162,17 +162,16 @@ class DataAccess {
             timeBound.addTimeInterval(-DataAccess.year)
         }
         
-        let timeVal = timeBound.timeIntervalSinceReferenceDate.bitPattern
-        return NSPredicate(format: "date >= \(timeVal)")
+        return NSPredicate(format: "date >= %@", timeBound as NSDate)
     }
     
-    private func getCurrentDate() -> Int64 {
-        return (Int64) (Date().timeIntervalSinceReferenceDate.bitPattern)
+    private func getCurrentDate() -> Date {
+        return Date()
     }
     
-    private func decodeDate(forInterval: UInt64) -> Date {
-        return Date(timeIntervalSinceReferenceDate: TimeInterval(bitPattern: forInterval))
-    }
+//    private func decodeDate(forInterval: UInt64) -> Date {
+//        return Date(timeIntervalSinceReferenceDate: TimeInterval(bitPattern: forInterval))
+//    }
     
     // MARK: - Core Data stack
     

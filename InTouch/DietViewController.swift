@@ -53,7 +53,7 @@ class DietViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        DataAccess.shared.addDietData(caffeine: (Int64) (CaffeineSlider.value), hydration: (Int64) (HydrationSlider.value), junk: (Int64) (JunkSlider.value), veggies: (Int64) (VeggiesSlider.value))
     }
 
     /*

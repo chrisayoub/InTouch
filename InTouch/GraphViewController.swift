@@ -61,11 +61,12 @@ class GraphViewController: UIViewController, UITableViewDataSource {
             }
             
             if (i == 0) {
+                // Mind
                 let data = DataAccess.shared.getMindData(interval: interval)
                 var entries: [ChartDataEntry] = []
                 for e in data {
                     // Format the date
-                    let dateVal = getFormattedDateForChartEntry(date: e.date, interval: interval)
+                    let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
                     
                     // Add the actual entry
                     entries.append(ChartDataEntry(x: (Double) (dateVal), y: e.length))
@@ -73,17 +74,79 @@ class GraphViewController: UIViewController, UITableViewDataSource {
                 let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
                 allData.append(entrySet)
             } else if (i == 1) {
-                
+                // Sleep
+                let data = DataAccess.shared.getSleepData(interval: interval)
+                print(data)
+                var entries: [ChartDataEntry] = []
+                for e in data {
+                    // Format the date
+                    let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
+                    
+                    // Add the actual entry
+                    entries.append(ChartDataEntry(x: (Double) (dateVal), y: (Double) (e.hoursOfSleep)))
+                }
+                let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
+                allData.append(entrySet)
             } else if (i == 2) {
-                
+                // Mood
+                let data = DataAccess.shared.getMoodData(interval: interval)
+                var entries: [ChartDataEntry] = []
+                for e in data {
+                    // Format the date
+                    let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
+                    
+                    // Add the actual entry
+                    entries.append(ChartDataEntry(x: (Double) (dateVal), y: (Double) (e.moodVal)))
+                }
+                let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
+                allData.append(entrySet)
             } else if (i == 3) {
-                
-            } else {
-                
+                // Diet
+                let data = DataAccess.shared.getDietData(interval: interval)
+                var entries: [ChartDataEntry] = []
+                for e in data {
+                    // Format the date
+                    let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
+                    
+                    // CALCULATE DIET VALUE HERE
+                    var valUse = (Double) (e.hydartion + e.veggies + (8 - e.caffeine) + (8 - e.junk))
+                    valUse /= 4.0
+                    
+                    // Add the actual entry
+                    entries.append(ChartDataEntry(x: (Double) (dateVal), y: valUse))
+                }
+                let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
+                allData.append(entrySet)
+            } else if (i == 4) {
+                // Goals
+                let data = DataAccess.shared.getGoalData(interval: interval)
+                var entries: [ChartDataEntry] = []
+                var dict = Dictionary<Int, Int>()
+                for e in data {
+                    // Format the date
+                    let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
+                    
+                    // Add the actual entry
+                    if (e.done) {
+                        if (dict[dateVal] == nil) {
+                            dict[dateVal] = 1
+                        } else {
+                            dict[dateVal] = dict[dateVal]! + 1
+                        }
+                    }
+                }
+                for (key, val) in dict {
+                    let k = (Double) (key)
+                    let v = (Double) (val)
+                    entries.append(ChartDataEntry(x: k, y: v))
+                }
+                let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
+                allData.append(entrySet)
             }
         }
         
-        graph.data = ChartData(dataSets: allData)
+        graph.data = LineChartData(dataSets: allData)
+        print(graph.data!)
         
         //This must stay at end of function
         graph.notifyDataSetChanged()
@@ -104,18 +167,23 @@ class GraphViewController: UIViewController, UITableViewDataSource {
         chartUpdate(interval: timeInterval)
     }
     
-    func getFormattedDateForChartEntry(date: Int64, interval: DataAccess.graphInterval) -> Int {
+    func getFormattedDateForChartEntry(date: Date, interval: DataAccess.graphInterval) -> Int {
         // Format the date
-        let diff = Date().timeIntervalSinceReferenceDate.bitPattern - (UInt64) (date)
-        let dateConvDiff = Date(timeIntervalSinceReferenceDate: TimeInterval(diff))
         let cal = Calendar.current
+        let current = Date()
         
         var baseInt = 0
         var labelCount = 0
         switch (interval) {
-        case .month: baseInt = cal.component(.weekOfMonth, from: dateConvDiff); labelCount = 4
-        case .year: baseInt = cal.component(.month, from: dateConvDiff); labelCount = 12
-        default: baseInt = cal.component(.weekday, from: dateConvDiff); labelCount = 7
+        case .month:
+            baseInt = cal.dateComponents([.weekOfMonth], from: date, to: current).weekOfMonth!;
+            labelCount = 4
+        case .year:
+            baseInt = cal.dateComponents([.month], from: date, to: current).month!;
+            labelCount = 12
+        default:
+            baseInt = cal.dateComponents([.day], from: date, to: current).day!;
+            labelCount = 7
         }
         let axisPos = labelCount - 1 - baseInt
         return axisPos

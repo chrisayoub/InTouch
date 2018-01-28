@@ -23,6 +23,11 @@ class MoodViewController: UIViewController {
         moodSlider.value = (moodSlider.maximumValue + moodSlider.minimumValue) / 2
         
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        DataAccess.shared.addMoodData(moodVal: (Int64) (moodSlider.value))
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
