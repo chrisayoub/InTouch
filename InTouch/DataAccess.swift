@@ -48,12 +48,19 @@ class DataAccess {
             dateComp.day = i
             let calendar = Calendar(identifier: .gregorian)
             
+            // Mind
+            let mind = Mind.init(
+                entity: NSEntityDescription.entity(forEntityName: "Mind", in: persistentContainer.viewContext)!,
+                insertInto: persistentContainer.viewContext)
+            mind.date = calendar.date(from: dateComp)
+            mind.length = (Double)(Int64(shiftNormalValue(val: randNorm)))/7.0 * 1800.0
+            
             // Sleep
             let sleep = Sleep.init(
                 entity: NSEntityDescription.entity(forEntityName: "Sleep", in: persistentContainer.viewContext)!,
                 insertInto: persistentContainer.viewContext)
             sleep.date = calendar.date(from: dateComp)
-            sleep.hoursOfSleep = Int64(randNorm)
+            sleep.hoursOfSleep = Int64(randHour)
             
             // Mood
             let mood = Mood.init(

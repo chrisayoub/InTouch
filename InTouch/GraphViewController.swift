@@ -98,15 +98,17 @@ class GraphViewController: UIViewController, UITableViewDataSource {
                     entries.append(ChartDataEntry(x: (Double) (dateVal), y: y_val))
                 }
                 let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
-                entrySet.circleColors = [UIColor.green]
-                entrySet.setColor(UIColor.green)
+                entrySet.circleColors = [UIColor(red: CGFloat(57)/255.0, green:CGFloat(91)/255.0, blue:CGFloat(112)/255.0, alpha: CGFloat(1.0))]
+                entrySet.setColor(UIColor(red: CGFloat(57)/255.0, green:CGFloat(91)/255.0, blue:CGFloat(112)/255.0, alpha: CGFloat(1.0)))
+                entrySet.circleRadius = 5
+                entrySet.circleHoleRadius = 0
                 allData.append(entrySet)
             } else if (i == 1) {
                 // Sleep
                 let data = DataAccess.shared.getSleepData(interval: interval)
                
                 var entries: [ChartDataEntry] = []
-                let max = 7.0
+                let max = 9.0
                 for e in data {
                     // Format the date
                     let dateVal = getFormattedDateForChartEntry(date: e.date!, interval: interval)
@@ -116,8 +118,10 @@ class GraphViewController: UIViewController, UITableViewDataSource {
                     entries.append(ChartDataEntry(x: (Double) (dateVal), y: y_val))
                 }
                 let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
-                entrySet.circleColors = [UIColor.red]
-                entrySet.setColor(UIColor.red)
+                entrySet.circleColors = [UIColor(red: CGFloat(189)/255.0, green:CGFloat(106)/255.0, blue:CGFloat(106)/255.0, alpha: CGFloat(1.0))]
+                entrySet.setColor(UIColor(red: CGFloat(189)/255.0, green:CGFloat(106)/255.0, blue:CGFloat(106)/255.0, alpha: CGFloat(1.0)))
+                entrySet.circleRadius = 5
+                entrySet.circleHoleRadius = 0
                 allData.append(entrySet)
             } else if (i == 2) {
                 // Mood
@@ -133,6 +137,10 @@ class GraphViewController: UIViewController, UITableViewDataSource {
                     entries.append(ChartDataEntry(x: (Double) (dateVal), y: y_val))
                 }
                 let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
+                entrySet.circleColors = [UIColor(red: CGFloat(200)/255.0, green:CGFloat(199)/255.0, blue:CGFloat(132)/255.0, alpha: CGFloat(1.0))]
+                entrySet.setColor(UIColor(red: CGFloat(200)/255.0, green:CGFloat(199)/255.0, blue:CGFloat(132)/255.0, alpha: CGFloat(1.0)))
+                entrySet.circleRadius = 5
+                entrySet.circleHoleRadius = 0
                 allData.append(entrySet)
             } else if (i == 3) {
                 // Diet
@@ -150,8 +158,10 @@ class GraphViewController: UIViewController, UITableViewDataSource {
                     entries.append(ChartDataEntry(x: (Double) (dateVal), y: valUse))
                 }
                 let entrySet = LineChartDataSet(values: entries, label: cellTitles[i])
-                entrySet.circleColors = [UIColor.yellow]
-                entrySet.setColor(UIColor.yellow)
+                entrySet.circleColors = [UIColor(red: CGFloat(112)/255.0, green:CGFloat(52)/255.0, blue:CGFloat(52)/255.0, alpha: CGFloat(1.0))]
+                entrySet.setColor(UIColor(red: CGFloat(112)/255.0, green:CGFloat(52)/255.0, blue:CGFloat(52)/255.0, alpha: CGFloat(1.0)))
+                entrySet.circleRadius = 5
+                entrySet.circleHoleRadius = 0
                 allData.append(entrySet)
             }
             //else if (i == 4) {
